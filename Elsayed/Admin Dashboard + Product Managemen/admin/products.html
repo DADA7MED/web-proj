@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+</head>
+<body class="admin">
+
+  <aside class="admin-sidebar" id="admin-sidebar">
+    <div class="admin-brand">
+      <span class="admin-brand__logo">LS</span>
+      <div>
+        <div class="admin-brand__name">Laptop Store</div>
+        <div class="admin-brand__tag">ADMIN PANEL</div>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <p class="admin-nav__label">MANAGEMENT</p>
+      <a class="admin-nav__link" href="index.html">Dashboard</a>
+      <a class="admin-nav__link is-active" href="products.html">Products</a>
+      <a class="admin-nav__link" href="categories.html">Categories</a>
+      <a class="admin-nav__link" href="orders.html">Orders</a>
+      <a class="admin-nav__link admin-nav__link--store" href="../index.html">Customer Storefront ↗</a>
+    </nav>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-header">
+      <button class="admin-header__menu" id="menu-btn" aria-label="Toggle menu">☰</button>
+      <span class="admin-header__crumb">ADMIN <span>›</span> Products</span>
+    </header>
+
+    <main class="admin-content">
+      <div class="admin-page-head">
+        <div>
+          <h1>Products</h1>
+          <p class="admin-muted-text">Manage all laptops in the store.</p>
+        </div>
+        <a class="admin-btn admin-btn--primary" href="product-form.html">+ Add Product</a>
+      </div>
+
+      <div class="admin-card admin-filters">
+        <input id="search" class="admin-input" type="search" placeholder="Search by name or brand...">
+        <select id="category-filter" class="admin-input">
+          <option value="">All Categories</option>
+        </select>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-body"></tbody>
+          </table>
+        </div>
+        <p id="empty-state" class="admin-empty" hidden>No products found.</p>
+        <p id="result-count" class="admin-muted-text admin-count"></p>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="confirm-dialog" class="admin-dialog">
+    <h2>Delete product?</h2>
+    <p id="confirm-text"></p>
+    <div class="admin-dialog__actions">
+      <button class="admin-btn" id="confirm-cancel" type="button">Cancel</button>
+      <button class="admin-btn admin-btn--danger" id="confirm-ok" type="button">Delete</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="../js/pages/admin/adminProducts.js"></script>
+</body>
+</html>
