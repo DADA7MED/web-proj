@@ -4,7 +4,9 @@ import { categoriesStore } from './categoriesStore.js';
 
 const STORAGE_KEY = 'laptop_store_products';
 const STORAGE_VERSION = 2;
-const API_URL = 'api/get_products.php';
+const API_URL = typeof window !== 'undefined' && window.location.pathname.includes('/admin/')
+  ? '../api/get_products.php'
+  : 'api/get_products.php';
 
 // ---------- helpers ----------
 const isSet = (v) => v !== undefined && v !== null && v !== '';
@@ -26,21 +28,21 @@ const parseObject = (v) => {
 const slugify = (text) =>
     String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
-function extractBrand(name) {
+function extractBrand(name, specs = {}) {
     if (!name) return 'Apex';
-    const first = name.trim().split(/\s+/)[0];
-    if (['Apple', 'MacBook'].includes(first)) return 'Apple';
-    if (['Dell', 'XPS', 'Alienware'].includes(first)) return 'Dell';
-    if (['Lenovo', 'ThinkPad', 'Legion'].includes(first)) return 'Lenovo';
-    if (['ASUS', 'ROG', 'ZenBook'].includes(first)) return 'ASUS';
-    if (['HP', 'Omen', 'Spectre'].includes(first)) return 'HP';
-    if (['Acer', 'Predator'].includes(first)) return 'Acer';
-    if (['MSI', 'Razer'].includes(first)) return first;
+    const text = (name + ' ' + JSON.stringify(specs)).toLowerCase();
+    if (text.includes('apple') || text.includes('m4') || text.includes('macbook')) return 'Apple';
+    if (text.includes('dell') || text.includes('xps') || text.includes('alienware')) return 'Dell';
+    if (text.includes('lenovo') || text.includes('thinkpad') || text.includes('legion') || text.includes('yoga') || text.includes('flexbook')) return 'Lenovo';
+    if (text.includes('asus') || text.includes('rog') || text.includes('zenbook') || text.includes('vortex') || text.includes('titan')) return 'ASUS';
+    if (text.includes('hp') || text.includes('omen') || text.includes('spectre')) return 'HP';
+    if (text.includes('razer')) return 'Razer';
     return 'Apex';
 }
 
 function normalizeProduct(p) {
-    const brand = p.brand || extractBrand(p.name);
+    const specsObj = parseObject(p.specs);
+    const brand = p.brand || specsObj.brand || extractBrand(p.name, specsObj);
     return {
         ...p,
         id: Number(p.id),
@@ -51,7 +53,7 @@ function normalizeProduct(p) {
         reviews_count: Number(p.reviews_count) || 0,
         stock: Number(p.stock) || 0,
         baseline_price: optionalNumber(p.baseline_price),
-        specs: parseObject(p.specs),
+        specs: specsObj,
         brand: brand,
         category: p.category || (categoriesStore.getCategoryById(p.category_id)?.name || 'Laptops')
     };

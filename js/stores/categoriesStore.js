@@ -4,7 +4,9 @@ import { seedCategories } from '../data/seedCategories.js';
 const STORAGE_KEY = 'laptop_store_categories';
 // لو شكل الداتا اتغير، زوّدي الرقم ده: أي نسخة قديمة متخزنة في المتصفح بتتجاهل وبتتحمل من جديد
 const STORAGE_VERSION = 2;
-const API_URL = 'api/categoriesApi.php';
+const API_URL = typeof window !== 'undefined' && window.location.pathname.includes('/admin/')
+  ? '../api/categoriesApi.php'
+  : 'api/categoriesApi.php';
 
 // ---------- helpers ----------
 const isSet = (v) => v !== undefined && v !== null && v !== '';

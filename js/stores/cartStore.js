@@ -30,8 +30,11 @@ export function loadCart() {
   if (items.length > 0) {
     return Promise.resolve(items);
   }
-  // Try fetching cart.json or initialize empty
-  return fetch("Ahmed hassan/data/cart.json")
+  const cartJsonUrl = typeof window !== 'undefined' && window.location.pathname.includes('/admin/')
+    ? "../Ahmed hassan/data/cart.json"
+    : "Ahmed hassan/data/cart.json";
+
+  return fetch(cartJsonUrl)
     .then(res => res.json())
     .then(seed => {
       saveCart(seed);
