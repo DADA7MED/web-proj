@@ -42,10 +42,12 @@ const server = http.createServer((req, res) => {
 
   // Mock API routes for seamless fallback if called
   if (pathname === '/api/get_products.php' || pathname === '/Habiba/Products + Categories + Search & Filters/api/get_products.php') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
     try {
-      const seedContent = fs.readFileSync(path.join(ROOT_DIR, 'Ahmed hassan/data/cart.json'), 'utf8');
-      res.end(seedContent);
+      const code = fs.readFileSync(path.join(ROOT_DIR, 'js/data/seedProducts.js'), 'utf8');
+      const jsonStr = code.replace(/^[\s\S]*?export const seedProducts =\s*/, '').replace(/;\s*$/, '');
+      const data = Function(`"use strict"; return (${jsonStr});`)();
+      res.end(JSON.stringify(data));
     } catch (e) {
       res.end('[]');
     }
@@ -53,8 +55,15 @@ const server = http.createServer((req, res) => {
   }
 
   if (pathname === '/api/categoriesApi.php' || pathname === '/Habiba/Products + Categories + Search & Filters/api/categoriesApi.php') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end('[]');
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    try {
+      const code = fs.readFileSync(path.join(ROOT_DIR, 'js/data/seedCategories.js'), 'utf8');
+      const jsonStr = code.replace(/^[\s\S]*?export const seedCategories =\s*/, '').replace(/;\s*$/, '');
+      const data = Function(`"use strict"; return (${jsonStr});`)();
+      res.end(JSON.stringify(data));
+    } catch (e) {
+      res.end('[]');
+    }
     return;
   }
 

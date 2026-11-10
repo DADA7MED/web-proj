@@ -190,3 +190,36 @@ body { background: #fff; color: var(--text-color); line-height: 1.5; }
 .newsletter-box input { border: none; background: transparent; padding: 8px 12px; color: #fff; font-size: 11px; outline: none; flex: 1; }
 .newsletter-box button { background: var(--primary-blue); color: #fff; border: none; padding: 0 15px; font-weight: 700; font-size: 11px; cursor: pointer; }
 .footer-bottom-bar { border-top: 1px solid #1e293b; padding: 20px 0; }
+
+/* =====================================
+   RESPONSIVE MEDIA QUERIES (تجاوب الشاشات)
+   ===================================== */
+@media (max-width: 1024px) {
+  .product-main-grid { grid-template-columns: 1fr; gap: 30px; }
+  .peripherals-four-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .top-bar-container { flex-wrap: wrap; gap: 12px; }
+  .categories-search-bar { order: 3; width: 100% !important; max-width: 100% !important; }
+  .sub-nav-links { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sub-nav-links .nav-links-left { white-space: nowrap; }
+  .quick-select-menu { display: none; }
+  .benchmark-three-columns { grid-template-columns: 1fr; }
+  .customer-reviews-wrapper { grid-template-columns: 1fr; gap: 24px; }
+  .specs-grid-boxes { grid-template-columns: 1fr; }
+  .blueprint-nav-pills { overflow-x: auto; white-space: nowrap; }
+}
+
+@media (max-width: 600px) {
+  .features-trio-grid { grid-template-columns: 1fr; }
+  .options-three-grid { grid-template-columns: 1fr; }
+  .peripherals-four-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .action-buttons-wrapper { flex-direction: column; align-items: stretch; }
+  .primary-add-cart-btn { width: 100%; justify-content: center; }
+  .qty-changer-box { width: 100%; justify-content: center; }
+  .main-laptop-img { margin: 15px 0; }
+  .specs-mini-footer { flex-wrap: wrap; gap: 8px; justify-content: center; }
+}
