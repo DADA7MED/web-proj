@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Account &amp; Authentication — Apex Laptop Store</title>
+  <link rel="stylesheet" href="css/pages/auth.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="auth-nav">
+    <a href="index.html" class="logo">💻 Apex Laptop Store</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="categories.html">Categories</a>
+      <a href="cart.html">Cart</a>
+      <a href="orders.html">Orders</a>
+      <a href="admin/index.html">Admin</a>
+    </div>
+  </nav>
+
+  <main class="auth-container">
+    <div class="auth-card">
+
+      <!-- Unauthenticated Mode: Sign In / Register Tabs -->
+      <div id="auth-forms-container">
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab active" id="tab-login">Sign In</button>
+          <button type="button" class="auth-tab" id="tab-register">Create Account</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="alex@apex.com" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+          </div>
+          <p id="login-error" style="color: #ef4444; font-size: 13px; margin: 0 0 10px; display: none;"></p>
+          <button type="submit" class="btn-primary" id="btn-login-submit">Sign In to Apex</button>
+
+          <div class="demo-logins">
+            <span style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 8px;">QUICK DEMO ONE-CLICK CREDENTIALS:</span>
+            <button type="button" class="demo-btn" id="demo-user-btn">👤 Login as Alexander Vance</button>
+            <button type="button" class="demo-btn" id="demo-admin-btn">⚡ Login as Store Admin</button>
+          </div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" style="display: none;">
+          <div class="form-group">
+            <label for="reg-name">Full Name *</label>
+            <input type="text" id="reg-name" class="form-input" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email Address *</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="john@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Password (min 6 chars) *</label>
+            <input type="password" id="reg-password" class="form-input" placeholder="••••••••" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-role">Account Type</label>
+            <select id="reg-role" class="form-input">
+              <option value="Pro Creator">Pro Creator &amp; Studio Workflows</option>
+              <option value="Student">Student (10% Edu Discount)</option>
+              <option value="Enterprise IT">Enterprise IT &amp; Fleet Deployments</option>
+              <option value="Gamer">Extreme Gaming Rig Enthusiast</option>
+            </select>
+          </div>
+          <p id="reg-error" style="color: #ef4444; font-size: 13px; margin: 0 0 10px; display: none;"></p>
+          <button type="submit" class="btn-primary" id="btn-reg-submit">Create My Account</button>
+        </form>
+      </div>
+
+      <!-- Authenticated Mode: Profile View -->
+      <div id="profile-container" class="profile-view" style="display: none;">
+        <img id="profile-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="User Avatar" class="profile-avatar">
+        <h2 id="profile-name" style="margin: 0 0 4px; font-size: 22px; color: #fff;">Alexander Vance</h2>
+        <p id="profile-email" style="margin: 0 0 10px; font-size: 13px; color: #94a3b8;">demo@apex.com</p>
+        <span id="profile-role" class="profile-role-badge">VIP Member · Pro Creator</span>
+
+        <div class="profile-stats-grid">
+          <div class="stat-box">
+            <span class="stat-val" id="stat-orders-count">3</span>
+            <span class="stat-lbl">Placed Orders</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val" id="stat-wishlist-count">2</span>
+            <span class="stat-lbl">Wishlist Items</span>
+          </div>
+        </div>
+
+        <!-- Editable Profile Details -->
+        <form id="profile-update-form" style="text-align: left; margin-top: 16px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+          <h3 style="font-size: 14px; text-transform: uppercase; color: #94a3b8; margin-top: 0;">Personal Details</h3>
+          <div class="form-group">
+            <label for="prof-phone">Phone Number</label>
+            <input type="text" id="prof-phone" class="form-input" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="prof-address">Default Delivery Address</label>
+            <input type="text" id="prof-address" class="form-input" placeholder="Street, City, Country">
+          </div>
+          <button type="submit" style="background: rgba(56, 189, 248, 0.2); border: 1px solid #38bdf8; color: #38bdf8; padding: 10px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; width: 100%;">Save Changes</button>
+        </form>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+          <a href="orders.html" style="flex: 1; text-align: center; text-decoration: none; background: #090e1a; border: 1px solid var(--border-color); color: #fff; padding: 10px; border-radius: 8px; font-size: 13px;">View My Orders</a>
+          <button type="button" id="btn-logout" style="flex: 1; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #ef4444; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;">Sign Out</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module" src="js/pages/auth.js"></script>
+</body>
+</html>
