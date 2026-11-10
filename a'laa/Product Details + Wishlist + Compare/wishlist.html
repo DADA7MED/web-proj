@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Wishlist | Laptop Store</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/pages/wishlist.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                LAPTOP<span>STORE</span>
+            </a>
+
+            <div class="header-search">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input
+                    type="search"
+                    placeholder="Search laptops, brands and more..."
+                    aria-label="Search products"
+                >
+                <button type="button">Search</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="cart.php" class="cart-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Cart</span>
+                </a>
+            </div>
+
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="products.php">
+                <i class="fa-solid fa-laptop"></i>
+                Products
+            </a>
+
+            <a href="wishlist.html" class="active" aria-current="page">
+                <i class="fa-solid fa-heart"></i>
+                Wishlist
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="wishlist-container">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Wishlist</span>
+        </div>
+
+
+        <!-- Page Heading -->
+        <section class="wishlist-heading">
+
+            <div>
+                <span class="section-label">
+                    <i class="fa-solid fa-bookmark"></i>
+                    YOUR COLLECTION
+                </span>
+
+                <h1>Hardware Wishlist &amp; Saved Configurations</h1>
+
+                <p>
+                    Keep track of your favorite hardware and never miss a great deal.
+                </p>
+            </div>
+
+            <div class="wishlist-counter">
+                <div class="counter-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <span id="wishlist-count">0</span>
+                <small>Saved Items</small>
+            </div>
+
+        </section>
+
+
+        <!-- Summary -->
+        <section class="wishlist-summary">
+
+            <div class="summary-card">
+                <div class="summary-icon value-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+
+                <div>
+                    <small>Total Wishlist Value</small>
+                    <h2 id="wishlist-total">0 EGP</h2>
+                    <span class="summary-caption">Value of saved products</span>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon savings-icon">
+                    <i class="fa-solid fa-tags"></i>
+                </div>
+
+                <div>
+                    <small>Potential Savings</small>
+                    <h2 id="wishlist-savings">0 EGP</h2>
+                    <span class="summary-caption">Save more with current offers</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Toolbar -->
+        <section class="wishlist-toolbar">
+
+            <div class="toolbar-actions">
+
+                <button type="button" class="primary-button" id="move-all-cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    Move All to Cart
+                </button>
+
+                <button type="button" class="secondary-button" id="share-wishlist">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    Share Wishlist
+                </button>
+
+                <button type="button" class="secondary-button" id="price-alerts">
+                    <i class="fa-solid fa-bell"></i>
+                    Price Alerts
+                </button>
+
+            </div>
+
+            <div class="sort-container">
+
+                <label for="sort">
+                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    Sort by:
+                </label>
+
+                <select id="sort">
+                    <option value="recent">Recently Added</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                </select>
+
+                <button type="button" id="clear-wishlist" class="clear-button">
+                    <i class="fa-regular fa-trash-can"></i>
+                    Clear Wishlist
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Status -->
+        <p id="status-message"
+           class="status-message"
+           role="status"
+           aria-live="polite"></p>
+
+
+        <!-- Products -->
+        <section id="product-grid"
+                 class="product-grid"
+                 aria-live="polite"></section>
+
+
+        <!-- Empty Wishlist -->
+        <section id="empty-wishlist" class="empty-wishlist" hidden>
+
+            <div class="empty-icon">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <span class="section-label">YOUR COLLECTION</span>
+
+            <h2>Your Wishlist is Empty</h2>
+
+            <p>
+                You haven't saved any products yet.
+                Explore our collection and find your favorite laptop.
+            </p>
+
+            <a href="products.php" class="shop-button">
+                <i class="fa-solid fa-arrow-right"></i>
+                Explore Products
+            </a>
+
+        </section>
+
+
+        <!-- Price Guard -->
+        <section class="price-guard">
+
+            <div class="price-guard-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="price-guard-content">
+
+                <span class="section-label">
+                    SMART SHOPPING
+                </span>
+
+                <h2>Price Guard</h2>
+
+                <p>
+                    Stay ahead of price changes.
+                    Get notified when your favorite laptops drop in price.
+                </p>
+
+            </div>
+
+            <button type="button" id="enable-price-alerts">
+                <i class="fa-solid fa-bell"></i>
+                Enable Price Alerts
+            </button>
+
+        </section>
+
+
+        <!-- Accessories -->
+        <section class="accessories-section">
+
+            <span class="section-label">
+                <i class="fa-solid fa-puzzle-piece"></i>
+                COMPLETE YOUR SETUP
+            </span>
+
+            <h2>Recommended Accessories</h2>
+
+            <p>
+                Explore accessories that go perfectly with your saved laptops.
+            </p>
+
+            <div class="accessories-grid">
+
+                <article class="accessory-card">
+                    <div class="accessory-icon">
+                        <i class="fa-solid fa-keyboard"></i>
+                    </div>
+
+                    <h3>Mechanical Keyboards</h3>
+                    <p>Upgrade your typing experience.</p>
+
+                    <span class="accessory-link">
+                        Complete your setup
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </article>
+
+
+                <article class="accessory-card">
+                    <div class="accessory-icon">
+                        <i class="fa-solid fa-computer-mouse"></i>
+                    </div>
+
+                    <h3>Wireless Mice</h3>
+                    <p>Precision and comfort for your setup.</p>
+
+                    <span class="accessory-link">
+                        Complete your setup
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </article>
+
+
+                <article class="accessory-card">
+                    <div class="accessory-icon">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+
+                    <h3>Headphones</h3>
+                    <p>Enjoy immersive audio anywhere.</p>
+
+                    <span class="accessory-link">
+                        Complete your setup
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Benefits -->
+        <section class="wishlist-benefits">
+
+            <article>
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <div>
+                    <h3>Save Your Favorites</h3>
+                    <p>Keep all your favorite laptops in one place.</p>
+                </div>
+            </article>
+
+            <article>
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <h3>Shop With Confidence</h3>
+                    <p>Keep track of prices and product availability.</p>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    LAPTOP<span>STORE</span>
+                </a>
+
+                <p>
+                    Your destination for the latest laptops and accessories.
+                </p>
+
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="products.php">Products</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="cart.php">Shopping Cart</a>
+            </div>
+
+
+            <div>
+                <h3>Customer Support</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQs</a>
+                <a href="#">Shipping Information</a>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Laptop Store. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script type="module" src="js/pages/wishlist.js"></script>
+
+</body>
+</html>
