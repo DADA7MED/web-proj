@@ -1,0 +1,386 @@
+/* css/base.css — A Lap Master Design System & Shared Tokens */
+
+/* ========================================================
+   LIGHT MODE: PURE CRISP WHITE #ffffff + TURQUOISE ACCENT
+   ======================================================== */
+:root, [data-theme="light"], body.theme-light {
+  --primary: #00a89a;
+  --primary-hover: #008a7e;
+  --primary-contrast: #ffffff;
+  --primary-glow: rgba(0, 168, 154, 0.25);
+  --turquoise: #00a89a;
+  --turquoise-light: #2dd4bf;
+  --turquoise-dark: #00796b;
+  --bg-page: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9fafb;
+  --bg-surface: #f4f5f7;
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --text-main: #000000;
+  --text-heading: #000000;
+  --text-muted: #525252;
+  --nav-bg: #ffffff;
+  --nav-text: #000000;
+  --nav-border: #e2e8f0;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --accent-cyan: #00a89a;
+  --accent-green: #16a34a;
+  --accent-red: #dc2626;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Inter', sans-serif;
+  color-scheme: light;
+}
+
+/* ========================================================
+   DARK MODE: PURE PITCH BLACK #000000 + VIBRANT TURQUOISE
+   ======================================================== */
+[data-theme="dark"], body.theme-dark {
+  --primary: #00e5cf;
+  --primary-hover: #00c4b4;
+  --primary-contrast: #000000;
+  --primary-glow: rgba(0, 229, 207, 0.35);
+  --turquoise: #00e5cf;
+  --turquoise-light: #5eead4;
+  --turquoise-dark: #00a89a;
+  --bg-page: #000000 !important;
+  --bg-card: #000000 !important;
+  --bg-card-hover: #0a0a0a !important;
+  --bg-surface: #0a0a0a !important;
+  --border-color: #1a1a1a !important;
+  --border-light: #121212 !important;
+  --text-main: #ffffff !important;
+  --text-heading: #ffffff !important;
+  --text-muted: #a3a3a3 !important;
+  --nav-bg: #000000 !important;
+  --nav-text: #ffffff !important;
+  --nav-border: #1a1a1a !important;
+  --card-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
+  --accent-cyan: #00e5cf;
+  --accent-green: #22c55e;
+  --accent-red: #ef4444;
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background-color: var(--bg-page);
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Global Navbar Styling */
+.global-navbar {
+  background: var(--nav-bg) !important;
+  border-bottom: 1px solid var(--nav-border) !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.global-navbar .nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-heading) !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo .logo-icon {
+  color: var(--primary) !important;
+  font-size: 22px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary) !important;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--bg-surface, #111111);
+  color: var(--text-main, #ffffff);
+  border: 1.5px solid var(--primary, #00a89a);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--primary, #00a89a);
+  color: var(--primary-contrast, #000000) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+/* Floating Theme Switcher Widget (Always Visible) */
+.alap-floating-theme {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+}
+
+.floating-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  background: var(--bg-card, #000000);
+  color: var(--text-main, #ffffff);
+  border: 2px solid var(--primary, #00e5cf);
+  box-shadow: 0 8px 24px var(--primary-glow);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+.floating-theme-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px var(--primary-glow);
+  background: var(--primary, #00e5cf);
+  color: var(--primary-contrast, #000000);
+}
+
+.nav-btn {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.nav-btn.primary {
+  background: var(--primary) !important;
+  color: var(--primary-contrast) !important;
+  border-color: var(--primary) !important;
+}
+
+.nav-btn.primary:hover {
+  background: var(--primary-hover) !important;
+}
+
+/* Cart & Wishlist Pill Badges */
+.badge-count {
+  background: var(--primary) !important;
+  color: var(--primary-contrast) !important;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Responsive Utilities */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========================================================
+   GLOBAL PURE DARK (#000000) OVERRIDES
+   ======================================================== */
+[data-theme="dark"] body,
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .store-header,
+[data-theme="dark"] .store-footer,
+[data-theme="dark"] .breadcrumb-bar,
+[data-theme="dark"] .cart-container,
+[data-theme="dark"] .checkout-container,
+[data-theme="dark"] .order-container,
+[data-theme="dark"] .auth-container,
+[data-theme="dark"] .spec-sheet-panel,
+[data-theme="dark"] .dock-add-ons {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #1a1a1a !important;
+}
+
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .filter-block,
+[data-theme="dark"] .sort-and-count-bar,
+[data-theme="dark"] .category-form-factor-card,
+[data-theme="dark"] .brand-ecosystem-card,
+[data-theme="dark"] .cart-box,
+[data-theme="dark"] .order-summary,
+[data-theme="dark"] .auth-card,
+[data-theme="dark"] .checkout-card,
+[data-theme="dark"] .order-card,
+[data-theme="dark"] .wishlist-card,
+[data-theme="dark"] .details-card,
+[data-theme="dark"] .deploy-box,
+[data-theme="dark"] .admin-card {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #1f1f1f !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8) !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] strong,
+[data-theme="dark"] .logo-text,
+[data-theme="dark"] .logo-area,
+[data-theme="dark"] .store-name {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: #0a0a0a !important;
+  color: #ffffff !important;
+  border-color: #222222 !important;
+}
+
+[data-theme="dark"] .nav-links a {
+  color: #a3a3a3 !important;
+}
+[data-theme="dark"] .nav-links a:hover,
+[data-theme="dark"] .nav-links a.active {
+  color: var(--primary) !important;
+}
+
+/* ========================================================
+   GLOBAL PURE LIGHT (#ffffff) OVERRIDES
+   ======================================================== */
+[data-theme="light"] body,
+body.theme-light {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .global-navbar,
+[data-theme="light"] .site-header,
+[data-theme="light"] .store-header,
+[data-theme="light"] .breadcrumb-bar {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .product-card,
+[data-theme="light"] .filter-block,
+[data-theme="light"] .sort-and-count-bar,
+[data-theme="light"] .category-form-factor-card,
+[data-theme="light"] .brand-ecosystem-card,
+[data-theme="light"] .cart-box,
+[data-theme="light"] .order-summary,
+[data-theme="light"] .auth-card,
+[data-theme="light"] .checkout-card,
+[data-theme="light"] .order-card,
+[data-theme="light"] .wishlist-card {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #e5e7eb !important;
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] strong,
+[data-theme="light"] .logo-text,
+[data-theme="light"] .logo-area,
+[data-theme="light"] .store-name {
+  color: #000000 !important;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #d1d5db !important;
+}
+
+/* Turquoise Highlights & Buttons */
+.btn-primary,
+.cta-button,
+.shop-button,
+.page-btn.active,
+.tag-chip.active,
+.cart-badge-box,
+.btn-checkout {
+  background-color: var(--primary) !important;
+  color: var(--primary-contrast) !important;
+  border-color: var(--primary) !important;
+}
+
+a:hover {
+  color: var(--primary);
+}

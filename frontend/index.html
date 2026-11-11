@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Lap — Engineered for Extreme Performance</title>
+  <meta name="description" content="Elite ultrabooks, AI-ready creator workstations, and racing-grade gaming laptops with lab-validated benchmarks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pages/home.css" />
+</head>
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="A Lap home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3L4 7.5V16.5L12 21L20 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M12 8L8 10.2V14.8L12 17L16 14.8V10.2L12 8Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-text">A Lap</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="index.html" class="is-active" style="color: #38bdf8; font-weight: 600;">Home</a>
+        <a href="products.html">Laptops</a>
+        <a href="categories.html">Categories</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="cart.html">Cart</a>
+        <a href="orders.html">Orders</a>
+        <a href="admin/index.html">Admin</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" type="button" id="theme-toggle-btn" aria-label="Toggle Theme">☀️ نهار (أبيض)</button>
+        <button class="icon-btn" type="button" id="search-toggle" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn" type="button" id="account-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 19c1.5-3.2 4-5 7-5s5.5 1.8 7 5"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" type="button" id="cart-toggle" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h15l-1.6 8.2a2 2 0 0 1-2 1.6H9.2a2 2 0 0 1-2-1.6L5 4H2"/><circle cx="9" cy="21" r="1.2"/><circle cx="18" cy="21" r="1.2"/></svg>
+          <span class="cart-count" id="cart-count" hidden>0</span>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-bar" id="search-bar" hidden>
+      <div class="container">
+        <label class="sr-only" for="site-search">Search laptops</label>
+        <input id="site-search" type="search" placeholder="Search architectures, GPUs, chassis…" />
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="nav-mobile" hidden aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="products.html">Laptops Catalog</a>
+      <a href="categories.html">Categories & Brands</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="cart.html">Shopping Cart</a>
+      <a href="orders.html">Track Orders</a>
+      <a href="auth.html">Account / Login</a>
+      <a href="admin/index.html">Admin Dashboard</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <div class="hero-glow hero-glow-blue" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-cyan" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="badge-pill reveal">
+            <span class="badge-dot"></span>
+            New A Lap Xenon X6C · Thermals meet 4K
+          </p>
+          <h1 class="hero-title reveal delay-1">
+            Engineered for <span class="accent">Extreme</span> Performance.
+          </h1>
+          <p class="hero-lead reveal delay-2">
+            Discover elite ultrabooks, AI-ready creator workstations and racing-grade
+            gaming laptops with custom configured on-lab benchmarks and silent chassis.
+          </p>
+          <div class="hero-ctas reveal delay-3">
+            <a class="btn btn-primary" href="products.html">Explore All Laptops</a>
+            <a class="btn btn-outlined" href="categories.html">Browse Architectures</a>
+          </div>
+          <ul class="hero-meta reveal delay-4">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V6l-8-3-8 3v6c0 6 8 10 8 10z"/></svg>
+              3 Year On-Site
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13M10 5l7 7-7 7"/><path d="M21 5v14"/></svg>
+              14-Day Free Returns
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+              24/7 Live Support
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal delay-2">
+          <div class="hero-laptop-card">
+            <span class="chip chip-cyan">A Lap Xenon X6C</span>
+            <img src="assets/hero-laptop.jpg" alt="A Lap Xenon X6C gaming laptop with RGB keyboard" />
+            <div class="hero-laptop-footer">
+              <span class="label">Silicon engineered in Cupertino</span>
+              <button class="text-link" type="button" id="specialist-btn">Chat with a specialist →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORIES ===================== -->
+    <section class="section categories" id="categories">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Shop by architecture &amp; purpose</p>
+            <h2>Browse by Architecture &amp; Purpose</h2>
+          </div>
+          <p class="section-aside">
+            Tailored configurations pre-checked for creators, architects, and competitive esports.
+          </p>
+        </div>
+
+        <div class="category-grid">
+          <a href="products.html?category=ultrabooks" style="text-decoration:none; color:inherit;">
+            <article class="category-card reveal" style="cursor:pointer; height:100%;">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <p class="label">12 models</p>
+              <h3>Ultrabooks &amp; Thin</h3>
+              <p>Featherweight carbonfiber, under 2.2 lb, with all-day Thunderbolt.</p>
+            </article>
+          </a>
+          <a href="products.html?category=gaming-rigs" style="text-decoration:none; color:inherit;">
+            <article class="category-card reveal delay-1" style="cursor:pointer; height:100%;">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 10-13h-7l0-7z"/></svg>
+              </div>
+              <p class="label">18 models</p>
+              <h3>Extreme Gaming</h3>
+              <p>GPU chassis with vapor chamber, 240Hz panels, and silent boost bins.</p>
+            </article>
+          </a>
+          <a href="products.html?category=workstations" style="text-decoration:none; color:inherit;">
+            <article class="category-card reveal delay-2" style="cursor:pointer; height:100%;">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="12" cy="11" r="3"/><path d="M3 20h18"/></svg>
+              </div>
+              <p class="label">9 models</p>
+              <h3>Creator &amp; Studio</h3>
+              <p>Calibrated P3 OLED, ISV certified, SD, and color-true video pipelines.</p>
+            </article>
+          </a>
+          <a href="products.html" style="text-decoration:none; color:inherit;">
+            <article class="category-card reveal" style="cursor:pointer; height:100%;">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+              </div>
+              <p class="label">14 models</p>
+              <h3>Business &amp; Enterprise</h3>
+              <p>TPM, vPro, LTE, E-ink privacy, and zero-trust ready images.</p>
+            </article>
+          </a>
+          <a href="products.html?category=convertibles" style="text-decoration:none; color:inherit;">
+            <article class="category-card reveal delay-1" style="cursor:pointer; height:100%;">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+              </div>
+              <p class="label">8 models</p>
+              <h3>2-in-1 Convertibles</h3>
+              <p>Pen-ready dual-hinge, kickstand travel chassis, and touch OLED.</p>
+            </article>
+          </a>
+          <a href="categories.html" style="text-decoration:none; color:inherit;">
+            <article class="category-card reveal delay-2" style="cursor:pointer; height:100%;">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>
+              </div>
+              <p class="label">View All</p>
+              <h3>All Ecosystems</h3>
+              <p>Explore all brand architectures, custom builds, and hardware specs.</p>
+            </article>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PARTNERS ===================== -->
+    <section class="section partners" id="partners">
+      <div class="container">
+        <p class="eyebrow center">Certified, authorized partners &amp; serviceable warranty</p>
+        <div class="partner-row">
+          <article class="partner-card"><strong>Apple</strong><span>MacBook Pro</span></article>
+          <article class="partner-card"><strong>Dell</strong><span>XPS &amp; Precision</span></article>
+          <article class="partner-card"><strong>Lenovo</strong><span>ThinkPad / Legion</span></article>
+          <article class="partner-card"><strong>ASUS ROG</strong><span>Strix &amp; Zephyrus</span></article>
+          <article class="partner-card"><strong>Razer</strong><span>Blade Series</span></article>
+          <article class="partner-card"><strong>HP OMEN</strong><span>Transcend</span></article>
+          <article class="partner-card"><strong>MSI</strong><span>Stealth / Titan</span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRODUCTS ===================== -->
+    <section class="section products" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Lab validated · In stock today</p>
+            <h2>Featured Best Sellers</h2>
+          </div>
+          <div class="filter-bar" role="tablist" aria-label="Product categories">
+            <button class="filter-btn is-active" data-filter="all" type="button">All</button>
+            <button class="filter-btn" data-filter="gaming" type="button">Gaming</button>
+            <button class="filter-btn" data-filter="creator" type="button">Creator</button>
+            <button class="filter-btn" data-filter="business" type="button">Business</button>
+            <button class="filter-btn" data-filter="student" type="button">Student</button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+          <article class="product-card reveal" data-category="student business" data-id="zenith-pro-16">
+            <div class="product-media">
+              <span class="product-badge">Best Seller</span>
+              <button class="wish-btn" type="button" aria-label="Add Zenith Pro 16 to wishlist" data-wish="zenith-pro-16">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.2C.8 8.6 2.4 5 6 5c2 0 3.2 1 4 2 0.8-1 2-2 4-2 3.6 0 5.2 3.6 3.2 6.8C19 15.6 12 20 12 20z"/></svg>
+              </button>
+              <a href="details.html?id=1" aria-label="Zenith Pro 16 Details"><img src="assets/laptop-ultrabook.jpg" alt="Zenith Pro 16 Ultrabook" /></a>
+            </div>
+            <div class="product-body">
+              <p class="rating"><span class="stars">★★★★★</span> 4.9 <span class="muted">(1,204)</span></p>
+              <h3><a href="details.html?id=1" style="color:inherit; text-decoration:none;">Zenith Pro 16 Ultrabook</a></h3>
+              <p class="specs label">Intel Ultra 7 · 32GB · 3.2K OLED</p>
+              <div class="product-footer">
+                <div>
+                  <p class="price">$2,199 <span class="was">$2,499</span></p>
+                  <p class="save label">Save 12%</p>
+                </div>
+                <button class="btn btn-primary btn-sm add-to-cart" type="button"
+                  data-id="zenith-pro-16" data-name="Zenith Pro 16 Ultrabook" data-price="2199">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-1" data-category="gaming" data-id="titan-forge">
+            <div class="product-media">
+              <span class="product-badge badge-rated">Top Rated</span>
+              <button class="wish-btn" type="button" aria-label="Add Titan Forge to wishlist" data-wish="titan-forge">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.2C.8 8.6 2.4 5 6 5c2 0 3.2 1 4 2 0.8-1 2-2 4-2 3.6 0 5.2 3.6 3.2 6.8C19 15.6 12 20 12 20z"/></svg>
+              </button>
+              <a href="details.html?id=3" aria-label="Titan Forge RTX 4090 Details"><img src="assets/laptop-gaming.jpg" alt="Titan Forge RTX 4090 gaming laptop" /></a>
+            </div>
+            <div class="product-body">
+              <p class="rating"><span class="stars">★★★★★</span> 4.8 <span class="muted">(986)</span></p>
+              <h3><a href="details.html?id=3" style="color:inherit; text-decoration:none;">Titan Forge RTX 4090 Rig</a></h3>
+              <p class="specs label">RTX 4090 · 32GB · 240Hz QHD</p>
+              <div class="product-footer">
+                <div>
+                  <p class="price">$2,899</p>
+                </div>
+                <button class="btn btn-primary btn-sm add-to-cart" type="button"
+                  data-id="titan-forge" data-name="Titan Forge RTX 4090 Rig" data-price="2899">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-2" data-category="creator" data-id="aura-studio">
+            <div class="product-media">
+              <span class="product-badge badge-creator">Creator Choice</span>
+              <button class="wish-btn" type="button" aria-label="Add AuraStudio 16 to wishlist" data-wish="aura-studio">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.2C.8 8.6 2.4 5 6 5c2 0 3.2 1 4 2 0.8-1 2-2 4-2 3.6 0 5.2 3.6 3.2 6.8C19 15.6 12 20 12 20z"/></svg>
+              </button>
+              <a href="details.html?id=2" aria-label="AuraStudio 16 OLED Details"><img src="assets/laptop-studio.jpg" alt="AuraStudio 16 OLED Touch laptop" /></a>
+            </div>
+            <div class="product-body">
+              <p class="rating"><span class="stars">★★★★★</span> 4.9 <span class="muted">(742)</span></p>
+              <h3><a href="details.html?id=2" style="color:inherit; text-decoration:none;">AuraStudio 16 OLED Touch</a></h3>
+              <p class="specs label">4K OLED · 64GB · SD Express</p>
+              <div class="product-footer">
+                <div>
+                  <p class="price">$1,649 <span class="was">$1,899</span></p>
+                  <p class="save label">Save 13%</p>
+                </div>
+                <button class="btn btn-inverted btn-sm add-to-cart" type="button"
+                  data-id="aura-studio" data-name="AuraStudio 16 OLED Touch" data-price="1649">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-3" data-category="business student" data-id="innovate-carbon">
+            <div class="product-media">
+              <span class="product-badge badge-enterprise">Enterprise Ready</span>
+              <button class="wish-btn" type="button" aria-label="Add Innovate Carbon X13s to wishlist" data-wish="innovate-carbon">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.2C.8 8.6 2.4 5 6 5c2 0 3.2 1 4 2 0.8-1 2-2 4-2 3.6 0 5.2 3.6 3.2 6.8C19 15.6 12 20 12 20z"/></svg>
+              </button>
+              <a href="details.html?id=4" aria-label="Innovate Carbon X13s Details"><img src="assets/laptop-enterprise.jpg" alt="Innovate Carbon X13s business laptop" /></a>
+            </div>
+            <div class="product-body">
+              <p class="rating"><span class="stars">★★★★☆</span> 4.7 <span class="muted">(518)</span></p>
+              <h3><a href="details.html?id=4" style="color:inherit; text-decoration:none;">Innovate Carbon X13s</a></h3>
+              <p class="specs label">vPro · LTE · 18hr battery</p>
+              <div class="product-footer">
+                <div>
+                  <p class="price">$1,899</p>
+                </div>
+                <button class="btn btn-primary btn-sm add-to-cart" type="button"
+                  data-id="innovate-carbon" data-name="Innovate Carbon X13s" data-price="1899">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="empty-filter" id="empty-filter" hidden>No laptops in this architecture yet. Try another filter.</p>
+      </div>
+    </section>
+
+    <!-- ===================== PROMO BANNER ===================== -->
+    <section class="section promo-wrap" id="promo">
+      <div class="container">
+        <div class="promo-banner reveal">
+          <div class="promo-copy">
+            <p class="badge-pill badge-flash">Flash Event</p>
+            <div class="countdown" id="countdown" aria-label="Offer countdown">
+              <div><strong id="cd-h">48</strong><span class="label">Hours</span></div>
+              <div><strong id="cd-m">12</strong><span class="label">Minutes</span></div>
+              <div><strong id="cd-s">06</strong><span class="label">Seconds</span></div>
+            </div>
+            <h2>Back to Campus &amp; Pro Creator Bundle</h2>
+            <p>Dual calibrated displays, AI workstation stack, 4TB storage — unlock up to $1,270 in campus &amp; creator credits.</p>
+            <a class="btn btn-primary" href="#newsletter">Claim Bundle Offer</a>
+          </div>
+          <aside class="promo-offer">
+            <img src="assets/laptop-promo.jpg" alt="Campus creator bundle laptop" />
+            <div>
+              <p class="label">Bundle lock-in</p>
+              <p class="price">$1,799 <span class="was">$2,249</span></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BENCHMARKS ===================== -->
+    <section class="section benchmarks" id="benchmarks">
+      <div class="container bench-grid">
+        <div class="bench-copy">
+          <p class="eyebrow">Independent lab validation</p>
+          <h2>Zero Guesswork. Rigorous Silicon Benchmarks.</h2>
+          <p>Every chassis is scored in thermal chambers, not marketing slides. Compare sustained clocks, battery curves, and noise floors before you buy.</p>
+          <ul class="feature-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <h3>Chassis Thermal Margin</h3>
+                <p>Sustained 95W GPU without throttle in 35°C ambient, verified across 45-minute loops.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <h3>Real-World Battery Curve</h3>
+                <p>14.2 hrs mixed productivity — not a looping 1080p video test in airplane mode.</p>
+              </div>
+            </li>
+          </ul>
+          <a class="btn btn-outlined-dark" href="#products">Launch Interactive Laptop Comparer</a>
+        </div>
+
+        <article class="bench-card reveal">
+          <header>
+            <h3>Adaptive Compute Performance Index</h3>
+            <p class="label">Normalized vs. Innovate X · 25°C chamber</p>
+          </header>
+          <div class="bars">
+            <div class="bar-row">
+              <div class="bar-meta">
+                <span>Titan Forge (RTX 4090) · 97%</span>
+                <span class="label">142 Cinebench</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill" data-width="97%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta">
+                <span>AuraStudio 16 OLED · 88%</span>
+                <span class="label">128 Cinebench</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bar-fill-blue" data-width="88%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta">
+                <span>Innovate Carbon X13s · 72%</span>
+                <span class="label">104 Cinebench</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill" data-width="72%"></div></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== REVIEWS ===================== -->
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Independent buyer verification</p>
+            <h2>Built for Professionals, Praised by Pros.</h2>
+          </div>
+          <p class="overall-rating"><span class="stars">★★★★★</span> 4.9 overall · 3,448 verified reviews</p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card reveal">
+            <p class="stars">★★★★★</p>
+            <p>“The carbon chassis and silent 95W loop let us ship 4K spots from hotel rooms. Battery still had 38% after a full edit day.”</p>
+            <footer>
+              <div>
+                <strong>Marcus Rodriguez</strong>
+                <span class="label">Creative Director</span>
+              </div>
+              <span class="verified">Verified Buyer</span>
+            </footer>
+          </article>
+          <article class="review-card reveal delay-1">
+            <p class="stars">★★★★★</p>
+            <p>“I run Revit on a 16-hour site day. Thermals stay under 78°C, and the color-true OLED makes materials boards look honest.”</p>
+            <footer>
+              <div>
+                <strong>Sarah Lin</strong>
+                <span class="label">Architect</span>
+              </div>
+              <span class="verified">Verified Buyer</span>
+            </footer>
+          </article>
+          <article class="review-card reveal delay-2">
+            <p class="stars">★★★★★</p>
+            <p>“vPro, LTE, and 18-hour battery let us image 400 units overnight. A Lap’s IT concierge actually picks up at 2am.”</p>
+            <footer>
+              <div>
+                <strong>David Kwon</strong>
+                <span class="label">IT Director</span>
+              </div>
+              <span class="verified">Verified Buyer</span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRUST ===================== -->
+    <section class="section trust" id="trust">
+      <div class="container trust-grid">
+        <article class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>30-Day Risk-Free</h3>
+          <p>Full refunds, prepaid labels, and no restocking fees on unopened silicon.</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg>
+          </div>
+          <h3>Zero-Pixel Guarantee</h3>
+          <p>Dead-pixel panels replaced before they leave Cupertino QA.</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z"/></svg>
+          </div>
+          <h3>Direct Manufacturer</h3>
+          <p>Authorized partner inventory with factory firmware and global warranty.</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <h3>24/7 IT Concierge</h3>
+          <p>Live engineers for imaging, RMA, and fleet telemetry — not a chatbot queue.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section class="section newsletter" id="newsletter">
+      <div class="container">
+        <div class="newsletter-banner reveal">
+          <div>
+            <p class="eyebrow light">Limited-stock drops</p>
+            <h2>Get $50 Off Your First Order + VIP Drops</h2>
+            <p>Lab-clearance SKUs, campus codes, and firmware betas land here first. No spam — unsubscribe anytime.</p>
+          </div>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="Work email or personal inbox" autocomplete="email" required />
+            <button class="btn btn-inverted" type="submit">Claim $50 Credit</button>
+            <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="logo-text">A Lap</p>
+      <p class="label">© 2026 A Lap. Lab-validated silicon for professionals.</p>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-labelledby="cart-title">
+    <header>
+      <h2 id="cart-title">Your Cart</h2>
+      <button class="icon-btn" type="button" id="cart-close" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <ul class="cart-items" id="cart-items"></ul>
+    <p class="cart-empty" id="cart-empty">Your cart is empty. Explore flagships to get started.</p>
+    <footer class="cart-footer">
+      <p>Subtotal <strong id="cart-subtotal">$0</strong></p>
+      <button class="btn btn-primary btn-block" type="button" id="checkout-btn">Proceed to Checkout</button>
+      <a href="cart.html" class="btn btn-outlined btn-block" style="display:block; text-align:center; margin-top:8px; text-decoration:none; padding:10px;">View Full Cart Page</a>
+    </footer>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/pages/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | Orders Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+</head>
+<body class="admin">
+
+  <aside class="admin-sidebar" id="admin-sidebar">
+    <div class="admin-brand">
+      <span class="admin-brand__logo">LS</span>
+      <div>
+        <div class="admin-brand__name">A Lap</div>
+        <div class="admin-brand__tag">ADMIN PANEL</div>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <p class="admin-nav__label">MANAGEMENT</p>
+      <a class="admin-nav__link" href="index.html">Dashboard</a>
+      <a class="admin-nav__link" href="products.html">Products</a>
+      <a class="admin-nav__link" href="categories.html">Categories</a>
+      <a class="admin-nav__link is-active" href="orders.html">Orders</a>
+      <a class="admin-nav__link admin-nav__link--store" href="../index.html">Customer Storefront ↗</a>
+    </nav>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-header">
+      <button class="admin-header__menu" id="menu-btn" aria-label="Toggle menu">☰</button>
+      <span class="admin-header__crumb">ADMIN <span>›</span> Orders</span>
+    </header>
+
+    <main class="admin-content">
+      <div class="admin-page-head">
+        <div>
+          <h1>Customer Orders</h1>
+          <p class="admin-muted-text">Manage customer hardware allocations and update shipment statuses.</p>
+        </div>
+      </div>
+
+      <div class="admin-card admin-filters">
+        <input id="search-orders" class="admin-input" type="search" placeholder="Search by Order ID or Customer Name...">
+        <select id="status-filter" class="admin-input">
+          <option value="">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Processing">Processing</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Payment</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Change Status</th>
+              </tr>
+            </thead>
+            <tbody id="orders-body"></tbody>
+          </table>
+        </div>
+        <p id="empty-orders" class="admin-empty" hidden>No orders found.</p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/pages/admin/adminOrders.js"></script>
+</body>
+</html>

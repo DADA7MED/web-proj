@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="doc-title">Product Details & Configurator - A Lap</title>
+    <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pages/details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <header class="site-top-header">
+        <div class="top-bar-container">
+            <div class="logo-area">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="store-name"><i class="fa-solid fa-laptop"></i> A Lap</span>
+                </a>
+            </div>
+            
+            <form action="products.html" method="GET" class="categories-search-bar">
+                <select name="category" class="cat-dropdown" style="border:none; background:transparent; outline:none; font-size:13px; cursor:pointer;">
+                    <option value="all">All Categories</option>
+                    <option value="workstations">Creator & Studio</option>
+                    <option value="gaming-rigs">Gaming Workstations</option>
+                    <option value="ultrabooks">Ultra-books</option>
+                    <option value="convertibles">2-in-1 Touch</option>
+                </select>
+                <div class="search-input-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="query" placeholder="Search ultra-books, RTX GPUs, specs...">
+                    <span class="kbd-shortcut">⌘K</span>
+                </div>
+                <button type="submit" style="display:none;"></button>
+            </form>
+
+            <div class="header-right-actions">
+                <button class="theme-toggle-btn" type="button" id="theme-toggle-btn" aria-label="Toggle Theme">☀️ نهار (أبيض)</button>
+                <button id="wishlist-btn" class="wishlist-action-btn" type="button">
+                    <i class="fa-regular fa-heart"></i> Wishlist
+                </button>
+                <a href="cart.html" style="text-decoration:none;">
+                    <div class="cart-pill-badge">
+                        <i class="fa-solid fa-cart-shopping"></i> Cart (0 items) &nbsp; <strong>$0.00</strong>
+                    </div>
+                </a>
+                <a href="auth.html" style="text-decoration:none;">
+                    <div class="user-avatar-badge">👤 My Account</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sub Navigation Links -->
+        <div class="sub-nav-links">
+            <div class="nav-links-left">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="categories.html">Categories</a>
+                <a href="details.html?id=1" class="active">Details</a>
+                <a href="cart.html">Cart</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="orders.html">Orders</a>
+                <a href="admin/index.html">Admin Portal</a>
+            </div>
+            <div class="quick-select-menu">
+                <span class="qs-title">QUICK SELECT:</span>
+                <a href="products.html?search=Apple">Apple Silicon</a>
+                <a href="products.html?search=ThinkPad">Lenovo ThinkPad</a>
+                <a href="products.html?search=ROG">ASUS ROG</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Flagship Launch Banner -->
+    <div class="flagship-launch-banner">
+        <p><i class="fa-solid fa-circle" style="font-size: 7px; color: #3b82f6;"></i> <strong>FLAGSHIP LAUNCH:</strong> Complimentary Pelican™ Hard Flight Case & 140W GaN Charging Brick included with every 2025 Flagship Workstation. <a href="products.html">View Shipping Policy →</a></p>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-trail">
+        <a href="index.html">Home</a> &gt; <a href="products.html">Laptops</a> &gt; <strong id="crumb-product-name">Zenith Pro 16 Extreme Silicon Workstation</strong>
+    </div>
+
+    <!-- Main Section 1: Product Details & Configurator -->
+    <main class="product-details-main">
+        <div class="product-main-grid">
+            
+            <!-- Left Column: Images & Features Grid -->
+            <div class="left-column-content">
+                <div class="main-display-box">
+                    <div class="badge-tag-top">2025 FLAGSHIP WORKSTATION</div>
+                    <div class="spin-360-badge"><i class="fa-solid fa-rotate"></i> 360° Studio Spin</div>
+                    <div class="color-calibrated-text">Factory Color-Calibrated ΔE &lt; 0.8</div>
+                    
+                    <img id="main-product-img" src="assets/images/products/zenith-pro-16.jpeg" alt="Laptop Workstation" class="main-laptop-img">
+                    
+                    <div class="specs-mini-footer">
+                        <span><i class="fa-solid fa-microchip"></i> 16-Core Extreme</span>
+                        <span><i class="fa-solid fa-memory"></i> 400 GB/s Uni-Mem</span>
+                        <span><i class="fa-solid fa-sun"></i> 1,600 Nits Peak</span>
+                        <span class="deep-zoom-link">Deep Zoom <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- Bottom 3 Feature Cards -->
+                <div class="features-trio-grid">
+                    <div class="feat-card-item">
+                        <i class="fa-solid fa-bolt lightning-icon"></i>
+                        <h4>Thunderbolt 5</h4>
+                        <p>Triple-bus 120 Gbps bandwidth for three 6K external displays.</p>
+                    </div>
+                    <div class="feat-card-item">
+                        <i class="fa-solid fa-snowflake audio-icon"></i>
+                        <h4>Sub-28 dB Acoustics</h4>
+                        <p>Zero throttling even at continuous 140W sustained multi-core loads.</p>
+                    </div>
+                    <div class="feat-card-item">
+                        <i class="fa-solid fa-battery-full battery-icon"></i>
+                        <h4>99.9 Wh Cell</h4>
+                        <p>FAA maximum legal flight capacity with 22-hour real battery life.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Configurator & Options -->
+            <div class="right-column-configurator">
+                <div class="sku-dispatch-row">
+                    <span class="sku-code" id="sku-code">SKU: ZENITH-16</span>
+                    <span class="express-dispatch-stock"><i class="fa-solid fa-circle" style="color: #22c55e; font-size: 8px;"></i> <span id="stock-count">14 Units Left for Express Dispatch</span></span>
+                </div>
+
+                <h1 class="product-main-title" id="product-title">Zenith Pro 16 Extreme Silicon Workstation</h1>
+                <p class="product-desc-lead">Engineered for Unreal Engine 5, 8K DaVinci Resolve rendering, and high-context Local LLM Inference with zero thermal throttling.</p>
+
+                <div class="reviews-stars-row">
+                    <div class="stars-gold">★★★★★</div>
+                    <span class="rating-num-bold" id="rating-num">4.95</span>
+                    <span class="reviews-count-text" id="reviews-count">(342 benchmark-verified studio reviews)</span>
+                </div>
+
+                <!-- Price Box -->
+                <div class="price-display-box">
+                    <span class="main-price-val" id="display-price" data-base="3148">$3,148</span>
+                    <span class="original-price-val" id="display-old-price">$3,299</span>
+                    <span class="save-instant-badge">SAVE $150 INSTANT</span>
+                </div>
+                <p class="financing-subtext">Or $120.79/mo for 24 mos with 0% APR via Store Fleet Pre-Qualify ↗</p>
+
+                <form id="configurator-form">
+                    <!-- 1. Compute Architecture -->
+                    <div class="config-section-block">
+                        <div class="block-title-row">
+                            <h3>1. Compute Architecture</h3>
+                            <span class="benchmark-info-link">Benchmark: 38,400 Cinebench R24</span>
+                        </div>
+                        <div class="options-radio-stack">
+                            <label class="config-option-card selected">
+                                <input type="radio" name="cpu" value="m4_max" data-add="0" checked>
+                                <div class="option-details-text">
+                                    <strong>M4 Max / Core Ultra 9 Extreme (16-Core CPU / 40-Core GPU)</strong>
+                                    <span>16 Performance cores, 16-Core Neural Engine (38 TOPS)</span>
+                                </div>
+                                <span class="included-tag-pill">Included</span>
+                            </label>
+                            <label class="config-option-card">
+                                <input type="radio" name="cpu" value="m4_pro" data-add="-400">
+                                <div class="option-details-text">
+                                    <strong>M4 Pro / Core Ultra 7 (12-Core CPU / 18-Core GPU)</strong>
+                                    <span>Ideal for audio production, photography &amp; web compilation</span>
+                                </div>
+                                <span class="price-mod-pill">-$400</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. Unified High-Bandwidth RAM -->
+                    <div class="config-section-block">
+                        <div class="block-title-row">
+                            <h3>2. Unified High-Bandwidth RAM</h3>
+                            <span class="benchmark-info-link">400 GB/s Bus</span>
+                        </div>
+                        <div class="options-three-grid">
+                            <label class="ram-card-item">
+                                <input type="radio" name="ram" value="32" data-add="-200">
+                                <strong>32 GB</strong>
+                                <span>Standard<br>-$200</span>
+                            </label>
+                            <label class="ram-card-item selected">
+                                <input type="radio" name="ram" value="64" data-add="0" checked>
+                                <strong>64 GB</strong>
+                                <span>Recommended<br>Default</span>
+                            </label>
+                            <label class="ram-card-item">
+                                <input type="radio" name="ram" value="128" data-add="800">
+                                <strong>128 GB</strong>
+                                <span>70B LLM Cache<br>+$800</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 3. Internal Storage -->
+                    <div class="config-section-block">
+                        <div class="block-title-row">
+                            <h3>3. Internal Storage (Gen 5 NVMe)</h3>
+                            <span class="benchmark-info-link">7,400 MB/s Read</span>
+                        </div>
+                        <div class="options-three-grid">
+                            <label class="storage-card-item">
+                                <input type="radio" name="storage" value="1tb" data-add="-200">
+                                <strong>1 TB</strong>
+                                <span>-$200</span>
+                            </label>
+                            <label class="storage-card-item selected">
+                                <input type="radio" name="storage" value="2tb" data-add="0" checked>
+                                <span>2 TB</span>
+                                <span>Default</span>
+                            </label>
+                            <label class="storage-card-item">
+                                <input type="radio" name="storage" value="4tb" data-add="600">
+                                <strong>4 TB</strong>
+                                <span>+$600</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 4. Studio Display Glass -->
+                    <div class="config-section-block">
+                        <div class="block-title-row">
+                            <h3>4. Studio Display Glass</h3>
+                        </div>
+                        <div class="config-option-card selected" style="padding: 10px 14px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" checked disabled>
+                                <div class="option-details-text">
+                                    <strong>16.2" Liquid XDR 3.2K 120Hz ProMotion</strong>
+                                    <span>1,600 nits Peak, Nano-Texture Etched Anti-Glare</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-lock" style="color: #64748b; font-size: 14px;"></i>
+                        </div>
+                    </div>
+
+                    <!-- 3-Year Direct Care Option -->
+                    <div class="config-section-block" style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; background: #fff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; gap: 10px; align-items: flex-start;">
+                                <input type="checkbox" id="care-addon" style="margin-top: 3px;">
+                                <div>
+                                    <strong style="font-size: 13px;">3-Year Direct Zero-Pixel Elite Care</strong>
+                                    <p style="font-size: 11px; color: #64748b; margin-top: 2px;">Includes accidental spill drops, global on-site courier replacement in 24 hours, and zero bright-subpixel replacement promise.</p>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 700; color: #0f172a;">+$249</span>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Add to Cart Bar -->
+                    <div class="action-buttons-wrapper">
+                        <div class="qty-changer-box">
+                            <button type="button" id="minus-btn">-</button>
+                            <input type="number" id="qty-input" name="quantity" value="1" min="1">
+                            <button type="button" id="plus-btn">+</button>
+                        </div>
+                        <button type="submit" class="primary-add-cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart - $<span id="btn-price">3,148</span>
+                        </button>
+                    </div>
+
+                    <div style="margin-top: 10px;">
+                        <button type="button" id="buy-now-btn" style="width: 100%; background: #0f172a; color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                            ⚡ Buy Now / Fast Checkout
+                        </button>
+                    </div>
+                </form>
+
+                <div style="display: flex; justify-content: space-around; margin-top: 20px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 15px; text-align: center;">
+                    <div><i class="fa-solid fa-shield-halved"></i><br>30-Day Risk-Free Trial</div>
+                    <div><i class="fa-solid fa-truck-fast"></i><br>Free Next-Day Air Flight</div>
+                    <div><i class="fa-solid fa-box-open"></i><br>Zero-Bloatware Pure OS</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Section 2: Benchmarks & Detailed Technical Specifications -->
+    <section class="benchmarks-tech-section">
+        <div class="inner-container">
+            <div class="lab-validation-header">
+                <span class="lab-badge"><i class="fa-solid fa-flask"></i> INTERNAL VALIDATION LAB BENCHMARKS</span>
+                <h2>Proven Studio Workstation Compute Ratios</h2>
+                <p>Performance comparison run on production firmware: Zenith Pro 16 vs previous gen and competitors.</p>
+            </div>
+
+            <div class="benchmark-three-columns">
+                <div class="bench-col-card">
+                    <h4>Blender 4.2 Monster 8K <span>Seconds (Lower is Better)</span></h4>
+                    <p class="bench-desc">Cycles GPU Path Tracing scene with 16M polygons and hair physics.</p>
+                    <div class="bench-bar-row"><span>Zenith Pro 16 (Extreme)</span> <div class="bar-fill blue" style="width: 100%;"><span>38s</span></div></div>
+                    <div class="bench-bar-row"><span>Dell XPS 16 (RTX 4070 Laptop)</span> <div class="bar-fill gray" style="width: 65%;"><span>64s</span></div></div>
+                    <div class="bench-bar-row"><span>Prior Gen Workstation</span> <div class="bar-fill gray" style="width: 75%;"><span>58s</span></div></div>
+                    <span class="bench-note"><i class="fa-solid fa-bolt"></i> 1.68x Faster than competing RTX 4070</span>
+                </div>
+
+                <div class="bench-col-card">
+                    <h4>DaVinci 8K ProRes Export <span>Minutes (Lower is Better)</span></h4>
+                    <p class="bench-desc">Dual ProRes Encode Engines rendering 60min multicam 8K timeline.</p>
+                    <div class="bench-bar-row"><span>Zenith Pro 16 (Extreme)</span> <div class="bar-fill blue" style="width: 100%;"><span>4.2 min</span></div></div>
+                    <div class="bench-bar-row"><span>Lenovo ThinkPad P16</span> <div class="bar-fill gray" style="width: 60%;"><span>7.9 min</span></div></div>
+                    <div class="bench-bar-row"><span>ASUS ROG Zephyrus G16</span> <div class="bar-fill gray" style="width: 50%;"><span>8.8 min</span></div></div>
+                    <span class="bench-note"><i class="fa-solid fa-play"></i> Realtime playback without proxy files</span>
+                </div>
+
+                <div class="bench-col-card">
+                    <h4>Cinebench 2024 Multi-Core <span>Points (Higher is Better)</span></h4>
+                    <p class="bench-desc">Sustained multi-threaded CPU stress load across 30-minute burn.</p>
+                    <div class="bench-bar-row"><span>Zenith Pro 16 (Extreme)</span> <div class="bar-fill blue" style="width: 100%;"><span>2,410 pts</span></div></div>
+                    <div class="bench-bar-row"><span>Core i9-14900HX Laptop</span> <div class="bar-fill gray" style="width: 75%;"><span>1,820 pts</span></div></div>
+                    <div class="bench-bar-row"><span>M3 Prior Gen 16-Core</span> <div class="bar-fill gray" style="width: 80%;"><span>1,900 pts</span></div></div>
+                    <span class="bench-note"><i class="fa-solid fa-battery-full"></i> Constant peak clock under battery power</span>
+                </div>
+            </div>
+
+            <!-- Customer Reviews Section -->
+            <div class="customer-reviews-wrapper">
+                <div class="reviews-left-col">
+                    <span class="ind-ratings-title">INDEPENDENT RATINGS</span>
+                    <h3>Customer Reviews</h3>
+                    <div class="big-rating-box">
+                        <span class="huge-score">4.95</span>
+                        <div>
+                            <div class="stars-gold">★★★★★</div>
+                            <span class="small-sub">Based on 342 verified purchases</span>
+                        </div>
+                    </div>
+                    <button class="submit-bench-btn">Submit Benchmark Review</button>
+                </div>
+
+                <div class="reviews-right-col">
+                    <div class="review-card-item">
+                        <div class="rev-header">
+                            <div class="user-badge-tag">DR</div>
+                            <div>
+                                <strong>David Rivera <span class="verified-badge">Verified Studio Pro</span></strong>
+                                <p class="user-role-sub">Lead Colorist @ Lumina VFX • Conf: 64GB Unified / 2TB SSD</p>
+                            </div>
+                            <span class="rev-time">3 days ago</span>
+                        </div>
+                        <div class="stars-gold" style="margin: 8px 0;">★★★★★</div>
+                        <p class="rev-text">"We cut 8K 12-bit raw RED footage directly off the SD Express card while commuting on Amtrak. The vapor chamber is dead silent; thermals sat at 68°C under continuous DaVinci timeline caching. The calibrated display completely matches our master monitor."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="store-footer" style="background:#0f172a; color:#cbd5e1; padding:40px 20px; font-size:13px;">
+        <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+            <div>
+                <h4 style="color:#fff; margin-bottom:10px;">A Lap</h4>
+                <p style="color:#94a3b8; max-width:320px;">Lab-engineered computing devices for high-demand workflows.</p>
+            </div>
+            <div>
+                <h4 style="color:#fff; margin-bottom:10px;">Navigation</h4>
+                <p><a href="index.html" style="color:#94a3b8; text-decoration:none;">Home</a> | <a href="products.html" style="color:#94a3b8; text-decoration:none;">Products</a> | <a href="categories.html" style="color:#94a3b8; text-decoration:none;">Categories</a> | <a href="cart.html" style="color:#94a3b8; text-decoration:none;">Cart</a></p>
+            </div>
+            <div>
+                <h4 style="color:#fff; margin-bottom:10px;">Account &amp; Admin</h4>
+                <p><a href="auth.html" style="color:#94a3b8; text-decoration:none;">My Account</a> | <a href="orders.html" style="color:#94a3b8; text-decoration:none;">Track Orders</a> | <a href="admin/index.html" style="color:#94a3b8; text-decoration:none;">Admin Portal</a></p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:30px; border-top:1px solid #334155; padding-top:20px; color:#64748b;">
+            © 2026 A Lap Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <script type="module" src="js/pages/details.js"></script>
+</body>
+</html>
