@@ -1,4 +1,26 @@
 // js/pages/cart.js
+import {
+  getCartItems,
+  saveCart,
+  loadCart,
+  addToCart,
+  removeFromCart,
+  updateQuantity,
+  increaseQuantity,
+  decreaseQuantity,
+  clearCart,
+  getCartCount,
+  getSubtotal,
+  applyPromo,
+  getDiscountTotal,
+  getShipping,
+  getTax,
+  getCartTotal,
+  FREE_SHIPPING_MIN,
+  PROMO_CODE
+} from '../stores/cartStore.js';
+import { initGlobalNavbar } from '../components/navbar.js';
+
 const PRODUCTS_PAGE = "products.html";
 
 function money(number) {
@@ -195,7 +217,13 @@ window.usePromo = usePromo;
 window.render = render;
 
 if (typeof loadCart === 'function') {
-  loadCart().then(render);
+  loadCart().then(() => {
+    initGlobalNavbar();
+    render();
+  });
 } else {
-  document.addEventListener('DOMContentLoaded', render);
+  document.addEventListener('DOMContentLoaded', () => {
+    initGlobalNavbar();
+    render();
+  });
 }

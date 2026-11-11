@@ -2,8 +2,10 @@
 import { authStore } from '../stores/authStore.js';
 import { ordersStore } from '../stores/ordersStore.js';
 import { wishlistStore } from '../stores/wishlistStore.js';
+import { initGlobalNavbar } from '../components/navbar.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initGlobalNavbar();
   const authForms = document.getElementById('auth-forms-container');
   const profileContainer = document.getElementById('profile-container');
 

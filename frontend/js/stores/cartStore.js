@@ -31,8 +31,8 @@ export function loadCart() {
     return Promise.resolve(items);
   }
   const cartJsonUrl = typeof window !== 'undefined' && window.location.pathname.includes('/admin/')
-    ? "../Ahmed hassan/data/cart.json"
-    : "Ahmed hassan/data/cart.json";
+    ? "../assets/data/cart.json"
+    : "assets/data/cart.json";
 
   return fetch(cartJsonUrl)
     .then(res => res.json())

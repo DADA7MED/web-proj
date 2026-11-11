@@ -7,6 +7,7 @@ const url = require('url');
 const PORT = process.env.PORT || 3000;
 const HOST = '0.0.0.0';
 const ROOT_DIR = __dirname;
+const FRONTEND_DIR = path.join(ROOT_DIR, 'frontend');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -40,11 +41,11 @@ const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
   let pathname = decodeURIComponent(parsedUrl.pathname);
 
-  // Mock API routes for seamless fallback if called
-  if (pathname === '/api/get_products.php' || pathname === '/Habiba/Products + Categories + Search & Filters/api/get_products.php') {
+  // Mock API routes for seamless fallback
+  if (pathname === '/api/get_products.php' || pathname.endsWith('get_products.php')) {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
     try {
-      const code = fs.readFileSync(path.join(ROOT_DIR, 'js/data/seedProducts.js'), 'utf8');
+      const code = fs.readFileSync(path.join(FRONTEND_DIR, 'js/data/seedProducts.js'), 'utf8');
       const jsonStr = code.replace(/^[\s\S]*?export const seedProducts =\s*/, '').replace(/;\s*$/, '');
       const data = Function(`"use strict"; return (${jsonStr});`)();
       res.end(JSON.stringify(data));
@@ -54,10 +55,10 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (pathname === '/api/categoriesApi.php' || pathname === '/Habiba/Products + Categories + Search & Filters/api/categoriesApi.php') {
+  if (pathname === '/api/categoriesApi.php' || pathname.endsWith('categoriesApi.php')) {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
     try {
-      const code = fs.readFileSync(path.join(ROOT_DIR, 'js/data/seedCategories.js'), 'utf8');
+      const code = fs.readFileSync(path.join(FRONTEND_DIR, 'js/data/seedCategories.js'), 'utf8');
       const jsonStr = code.replace(/^[\s\S]*?export const seedCategories =\s*/, '').replace(/;\s*$/, '');
       const data = Function(`"use strict"; return (${jsonStr});`)();
       res.end(JSON.stringify(data));
@@ -67,59 +68,86 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (pathname === '/api/wishlist.php' || pathname.includes('wishlist.php')) {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+  if (pathname === '/api/wishlist.php' || pathname.endsWith('wishlist.php')) {
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
     res.end(JSON.stringify({ success: true, status: 'synced', data: [] }));
     return;
   }
 
-  // Rewrite root & friendly URLs
-  if (pathname === '/' || pathname === '') {
-    pathname = '/index.html';
-  } else if (!path.extname(pathname)) {
-    if (fs.existsSync(path.join(ROOT_DIR, pathname + '.html'))) {
-      pathname = pathname + '.html';
-    } else if (fs.existsSync(path.join(ROOT_DIR, pathname, 'index.html'))) {
-      pathname = path.join(pathname, 'index.html');
-    }
-  }
-
-  // Also support .php requests by serving the corresponding .html file if exists
-  if (path.extname(pathname) === '.php') {
-    const htmlCandidate = pathname.replace(/\.php$/, '.html');
-    if (fs.existsSync(path.join(ROOT_DIR, htmlCandidate))) {
-      pathname = htmlCandidate;
-    }
-  }
-
-  const filePath = path.normalize(path.join(ROOT_DIR, pathname));
-
-  // Security: prevent path traversal outside root
-  if (!filePath.startsWith(ROOT_DIR)) {
-    res.writeHead(403, { 'Content-Type': 'text/plain' });
-    res.end('403 Forbidden');
+  if (pathname === '/api/orders.php' || pathname.endsWith('orders.php')) {
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    res.end(JSON.stringify({ success: true, status: 'ok', orders: [] }));
     return;
   }
 
-  fs.stat(filePath, (err, stats) => {
-    if (err || !stats.isFile()) {
-      res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-      res.end(`
-        <!DOCTYPE html>
-        <html>
-        <head><title>404 Not Found</title><style>body{font-family:sans-serif;background:#0f172a;color:#fff;text-align:center;padding:50px;}</style></head>
-        <body>
-          <h2>404 — Page Not Found</h2>
-          <p>Requested URL <code>${escapeHtml(pathname)}</code> does not exist.</p>
-          <p><a href="/" style="color:#38bdf8;">Return to Home Storefront</a></p>
-        </body>
-        </html>
-      `);
+  if (pathname === '/api/auth.php' || pathname.endsWith('auth.php')) {
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    res.end(JSON.stringify({ success: true, status: 'authenticated' }));
+    return;
+  }
+
+  // Rewrite root
+  if (pathname === '/' || pathname === '') {
+    pathname = '/index.html';
+  }
+
+  // Determine file location: check frontend/ first, then ROOT_DIR
+  let candidatePaths = [];
+
+  // If path starts with /frontend/, strip or check directly
+  if (pathname.startsWith('/frontend/')) {
+    candidatePaths.push(path.normalize(path.join(ROOT_DIR, pathname)));
+  } else {
+    candidatePaths.push(path.normalize(path.join(FRONTEND_DIR, pathname)));
+    candidatePaths.push(path.normalize(path.join(ROOT_DIR, pathname)));
+  }
+
+  // Also try with .html extension if extension is missing
+  if (!path.extname(pathname)) {
+    candidatePaths.unshift(path.normalize(path.join(FRONTEND_DIR, pathname + '.html')));
+  }
+
+  let finalFilePath = null;
+  for (const p of candidatePaths) {
+    if (p.startsWith(ROOT_DIR) && fs.existsSync(p)) {
+      try {
+        const s = fs.statSync(p);
+        if (s.isFile()) {
+          finalFilePath = p;
+          break;
+        } else if (s.isDirectory() && fs.existsSync(path.join(p, 'index.html'))) {
+          finalFilePath = path.join(p, 'index.html');
+          break;
+        }
+      } catch (e) {}
+    }
+  }
+
+  if (!finalFilePath) {
+    res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(`
+      <!DOCTYPE html>
+      <html>
+      <head><title>404 Not Found</title><style>body{font-family:sans-serif;background:#0f172a;color:#fff;text-align:center;padding:50px;}</style></head>
+      <body>
+        <h2>404 — Page Not Found</h2>
+        <p>Requested URL <code>${escapeHtml(pathname)}</code> does not exist.</p>
+        <p><a href="/" style="color:#38bdf8;">Return to Home Storefront</a></p>
+      </body>
+      </html>
+    `);
+    return;
+  }
+
+  const ext = path.extname(finalFilePath).toLowerCase();
+  const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+
+  fs.stat(finalFilePath, (err, stats) => {
+    if (err) {
+      res.writeHead(500);
+      res.end('500 Server Error');
       return;
     }
-
-    const ext = path.extname(filePath).toLowerCase();
-    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
     res.writeHead(200, {
       'Content-Type': contentType,
@@ -127,7 +155,7 @@ const server = http.createServer((req, res) => {
       'Cache-Control': 'no-cache'
     });
 
-    const stream = fs.createReadStream(filePath);
+    const stream = fs.createReadStream(finalFilePath);
     stream.pipe(res);
   });
 });
@@ -142,6 +170,7 @@ server.listen(PORT, HOST, () => {
   console.log(`===============================================`);
   console.log(` Laptop Store dev server running on:`);
   console.log(` http://${HOST}:${PORT}`);
+  console.log(` Serving frontend/ and backend/ seamlessly`);
   console.log(` Ready for live browser preview.`);
   console.log(`===============================================`);
 });

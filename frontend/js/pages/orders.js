@@ -1,8 +1,10 @@
 // js/pages/orders.js
 import { ordersStore } from '../stores/ordersStore.js';
 import { authStore } from '../stores/authStore.js';
+import { initGlobalNavbar } from '../components/navbar.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initGlobalNavbar();
   const urlParams = new URLSearchParams(window.location.search);
   const orderIdParam = urlParams.get('order_id');
   const placedParam = urlParams.get('placed');

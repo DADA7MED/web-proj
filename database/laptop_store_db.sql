@@ -69,10 +69,10 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `slug`, `price`, `old_price`, `rating`, `reviews_count`, `stock`, `image`, `specs`, `created_at`) VALUES
-(1, 3, 'Zenith Pro 16 Extreme Silicon Workstation', 'zenith-pro-16', 3148.00, 3299.00, 4.95, 342, 14, 'assets/images/products/zenith-pro-16.jpeg', '{\"cpu\": \"M4 Max (16-Core)\", \"ram\": \"64 GB\", \"storage\": \"2 TB SSD\", \"gpu\": \"40-Core GPU\"}', '2026-10-31 23:35:08'),
-(2, 1, 'Apex Ultra-Portable 14', 'apex-ultra-portable-14', 1299.00, 1499.00, 4.80, 120, 25, 'assets/images/products/apex-14.jpeg', '{\"cpu\": \"Core Ultra 7\", \"ram\": \"16 GB\", \"storage\": \"512 GB SSD\", \"gpu\": \"Intel Arc\"}', '2026-10-31 23:35:08'),
-(3, 2, 'Vortex Titan Gaming 18', 'vortex-titan-18', 2199.00, 2499.00, 4.88, 95, 8, 'assets/images/products/vortex-18.jpeg', '{\"cpu\": \"i9-14900HX\", \"ram\": \"32 GB\", \"storage\": \"1 TB SSD\", \"gpu\": \"RTX 4080\"}', '2026-10-31 23:35:08'),
-(4, 4, 'FlexBook 360 Touch 13', 'flexbook-360-13', 1199.00, 1350.00, 4.70, 64, 19, 'assets/images/products/flexbook-13.jpeg', '{\"cpu\": \"Ryzen 7 AI\", \"ram\": \"16 GB\", \"storage\": \"512 GB SSD\", \"gpu\": \"Radeon 780M\"}', '2026-10-31 23:35:08');
+(1, 3, 'Zenith Pro 16 Extreme Silicon Workstation', 'zenith-pro-16', 3148.00, 3299.00, 4.95, 342, 14, 'assets/images/products/zenith-pro-16.jpeg', '{\"brand\": \"Apple\", \"cpu\": \"Apple M4 Max (16-Core)\", \"ram\": \"64 GB\", \"storage\": \"2 TB SSD\", \"gpu\": \"40-Core GPU\"}', '2026-10-31 23:35:08'),
+(2, 1, 'Apex Ultra-Portable 14 (Dell XPS)', 'apex-ultra-portable-14', 1299.00, 1499.00, 4.80, 120, 25, 'assets/images/products/apex-14.jpeg', '{\"brand\": \"Dell\", \"cpu\": \"Core Ultra 7\", \"ram\": \"16 GB\", \"storage\": \"512 GB SSD\", \"gpu\": \"Intel Arc\"}', '2026-10-31 23:35:08'),
+(3, 2, 'Vortex Titan Gaming 18 (ASUS ROG)', 'vortex-titan-18', 2199.00, 2499.00, 4.88, 95, 8, 'assets/images/products/vortex-18.jpeg', '{\"brand\": \"ASUS\", \"cpu\": \"i9-14900HX\", \"ram\": \"32 GB\", \"storage\": \"1 TB SSD\", \"gpu\": \"RTX 4080\"}', '2026-10-31 23:35:08'),
+(4, 4, 'FlexBook 360 Touch 13 (Lenovo ThinkPad)', 'flexbook-360-13', 1199.00, 1350.00, 4.70, 64, 19, 'assets/images/products/flexbook-13.jpeg', '{\"brand\": \"Lenovo\", \"cpu\": \"Ryzen 7 AI\", \"ram\": \"16 GB\", \"storage\": \"512 GB SSD\", \"gpu\": \"Radeon 780M\"}', '2026-10-31 23:35:08');
 
 -- --------------------------------------------------------
 -- 3. جدول المفضلة (wishlists & wishlist_items) - من شغل آلاء

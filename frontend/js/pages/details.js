@@ -69,6 +69,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
+  // Update dynamic spec option labels to match product
+  if (product.specs?.cpu) {
+    const cpuDefaultStrong = document.querySelector('input[name="cpu"][value="m4_max"]')?.closest('label')?.querySelector('strong');
+    if (cpuDefaultStrong) cpuDefaultStrong.textContent = `${product.specs.cpu} (Baseline Configuration)`;
+  }
+  if (product.specs?.ram) {
+    const ramDefaultStrong = document.querySelector('input[name="ram"][value="64"]')?.closest('label')?.querySelector('strong');
+    if (ramDefaultStrong) ramDefaultStrong.textContent = product.specs.ram;
+  }
+  if (product.specs?.storage) {
+    const storageDefaultSpan = document.querySelector('input[name="storage"][value="2tb"]')?.closest('label')?.querySelector('span:first-of-type, strong');
+    if (storageDefaultSpan) storageDefaultSpan.textContent = product.specs.storage;
+  }
+
   // Configurator price calculation
   function calculatePrice() {
     let additional = 0;
