@@ -4,13 +4,13 @@
    1) Variables + Base  (كان ناقص: الـ variables والخط)
    ========================================================= */
 :root {
-    --bg-main: #f8fafc;
-    --card-bg: #ffffff;
+    --bg-main: var(--bg-page, #ffffff);
+    --card-bg: var(--bg-card, #ffffff);
     --primary-blue: #0047ff;
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-    --container: 1280px; /* غيّري الرقم ده بس لو عايزة تغيري عرض الصفحة كلها */
+    --text-dark: var(--text-main, #0f172a);
+    --text-muted: var(--text-muted, #64748b);
+    --border-color: var(--border-color, #e2e8f0);
+    --container: 1280px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -28,7 +28,7 @@ button, input, select { font-family: inherit; }
 /* =========================================================
    2) Header
    ========================================================= */
-.store-header { background: #fff; border-bottom: 1px solid var(--border-color); }
+.store-header { background: var(--nav-bg, #fff); border-bottom: 1px solid var(--border-color); }
 .header-container { max-width: var(--container); margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .logo-area { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
 .search-bar-area { display: flex; align-items: center; border: 1px solid var(--border-color); border-radius: 8px; padding: 4px 12px; width: 560px; max-width: 100%; background: #f8fafc; }

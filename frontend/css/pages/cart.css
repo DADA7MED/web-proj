@@ -5,8 +5,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #1e293b;
+  background: var(--bg-page, #ffffff);
+  color: var(--text-main, #000000);
 }
 
 button {
@@ -15,12 +15,12 @@ button {
 }
 
 .blue {
-  color: #2563eb;
+  color: var(--primary, #2563eb);
 }
 
 .light {
   font-weight: 400;
-  color: #64748b;
+  color: var(--text-muted, #64748b);
 }
 
 .navbar {
@@ -29,8 +29,8 @@ button {
   justify-content: space-between;
   gap: 16px;
   padding: 14px 32px;
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--nav-bg, #fff);
+  border-bottom: 1px solid var(--nav-border, #e2e8f0);
 }
 
 .logo {
@@ -67,8 +67,9 @@ main {
 }
 
 .top-box, .card, .summary {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  color: var(--text-main, inherit);
   border-radius: 12px;
 }
 

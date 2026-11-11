@@ -2,12 +2,12 @@
 
 /* Baseline Reset & Variables */
 :root {
-    --bg-main: #f8fafc;
-    --card-bg: #ffffff;
+    --bg-main: var(--bg-page, #ffffff);
+    --card-bg: var(--bg-card, #ffffff);
     --primary-blue: #0047ff;
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
+    --text-dark: var(--text-main, #0f172a);
+    --text-muted: var(--text-muted, #64748b);
+    --border-color: var(--border-color, #e2e8f0);
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 }
 
 /* Header */
-.store-header { background: #fff; border-bottom: 1px solid var(--border-color); }
+.store-header { background: var(--nav-bg, #fff); border-bottom: 1px solid var(--border-color); }
 .header-container { max-width: 1400px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
 .logo-area { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
 .search-bar-area { display: flex; align-items: center; border: 1px solid var(--border-color); border-radius: 8px; padding: 4px 12px; max-width: 450px; width: 100%; background: #f8fafc; }

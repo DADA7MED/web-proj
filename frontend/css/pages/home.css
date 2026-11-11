@@ -1,25 +1,25 @@
 /* =========================================================
-   Apex Precision Computing — Design tokens
+   A Lap — Design tokens & Dark/Light System
    ========================================================= */
-:root {
-  --primary: #0A192F;
+:root, [data-theme="light"], body.theme-light {
+  --primary: #000000;
   --secondary: #0066FF;
-  --tertiary: #00D2FF;
-  --neutral: #0F172A;
-  --white: #F3F1FE;
+  --tertiary: #0284c7;
+  --neutral: #000000;
+  --white: #ffffff;
 
-  --primary-soft: #13233f;
+  --primary-soft: #f8fafc;
   --secondary-soft: #3d88ff;
   --secondary-deep: #004fcc;
-  --lavender: #eceaf8;
-  --lavender-deep: #e4e1f5;
-  --card: #f7f6fd;
-  --muted: #5b6478;
-  --line: rgba(10, 25, 47, 0.08);
-  --shadow: 0 12px 32px rgba(10, 25, 47, 0.08);
-  --shadow-lift: 0 18px 40px rgba(10, 25, 47, 0.14);
-  --glow-blue: 0 0 32px rgba(0, 102, 255, 0.45);
-  --glow-cyan: 0 0 36px rgba(0, 210, 255, 0.35);
+  --lavender: #f1f5f9;
+  --lavender-deep: #e2e8f0;
+  --card: #ffffff;
+  --muted: #525252;
+  --line: rgba(0, 0, 0, 0.08);
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.12);
+  --glow-blue: 0 0 32px rgba(0, 102, 255, 0.25);
+  --glow-cyan: 0 0 36px rgba(0, 210, 255, 0.2);
   --radius: 18px;
   --radius-sm: 12px;
   --header-h: 72px;
@@ -28,6 +28,27 @@
   --font-head: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-label: "JetBrains Mono", monospace;
+}
+
+[data-theme="dark"], body.theme-dark {
+  --primary: #ffffff !important;
+  --secondary: #3b82f6 !important;
+  --tertiary: #38bdf8 !important;
+  --neutral: #ffffff !important;
+  --white: #000000 !important;
+
+  --primary-soft: #080808 !important;
+  --secondary-soft: #60a5fa !important;
+  --secondary-deep: #1d4ed8 !important;
+  --lavender: #0a0a0a !important;
+  --lavender-deep: #141414 !important;
+  --card: #000000 !important;
+  --muted: #a3a3a3 !important;
+  --line: #1c1c1c !important;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.8) !important;
+  --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.95) !important;
+  --glow-blue: 0 0 32px rgba(59, 130, 246, 0.2) !important;
+  --glow-cyan: 0 0 36px rgba(56, 189, 248, 0.15) !important;
 }
 
 *,

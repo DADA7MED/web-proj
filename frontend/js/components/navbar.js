@@ -1,11 +1,71 @@
-// js/components/navbar.js
+// js/components/navbar.js — A Lap Global Navigation & Theme Switcher
 import { cartStore } from '../stores/cartStore.js';
 import { wishlistStore } from '../stores/wishlistStore.js';
 import { authStore } from '../stores/authStore.js';
 
+// Apply saved theme immediately on script execution to prevent flicker
+(function applyInitialTheme() {
+  if (typeof window === 'undefined') return;
+  const saved = localStorage.getItem('alap_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  if (document.body) {
+    document.body.classList.toggle('theme-dark', saved === 'dark');
+    document.body.classList.toggle('theme-light', saved === 'light');
+  }
+})();
+
 export function initGlobalNavbar() {
+  // Theme Manager
+  function getTheme() {
+    return localStorage.getItem('alap_theme') || 'dark';
+  }
+
+  function applyTheme(theme) {
+    localStorage.setItem('alap_theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+    if (document.body) {
+      document.body.classList.toggle('theme-dark', theme === 'dark');
+      document.body.classList.toggle('theme-light', theme === 'light');
+    }
+    updateThemeButtons(theme);
+    window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme } }));
+  }
+
+  function toggleTheme() {
+    const next = getTheme() === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  }
+
+  function updateThemeButtons(theme) {
+    document.querySelectorAll('.theme-toggle-btn, #theme-toggle-btn').forEach(btn => {
+      if (theme === 'dark') {
+        btn.innerHTML = `🌙 <span class="theme-label">Dark (#000)</span>`;
+        btn.setAttribute('title', 'Switch to Light Mode (#fff)');
+      } else {
+        btn.innerHTML = `☀️ <span class="theme-label">Light (#fff)</span>`;
+        btn.setAttribute('title', 'Switch to Dark Mode (#000)');
+      }
+    });
+  }
+
+  // Inject Theme Button into navigation bar if missing
+  function ensureThemeButton() {
+    const containers = document.querySelectorAll('.nav-actions, .header-actions, .actions, .nav-right, .store-header .container, .nav-container');
+    containers.forEach(container => {
+      if (!container.querySelector('.theme-toggle-btn')) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'theme-toggle-btn';
+        btn.setAttribute('aria-label', 'Toggle theme between dark (#000000) and light (#ffffff)');
+        btn.addEventListener('click', toggleTheme);
+        container.insertBefore(btn, container.firstChild);
+      }
+    });
+    updateThemeButtons(getTheme());
+  }
+
+  // 1. Cart badge & total update
   function updateBadges() {
-    // 1. Cart badge & total
     const cartCount = cartStore.getCount();
     const cartTotal = cartStore.getSubtotal();
     
@@ -55,7 +115,8 @@ export function initGlobalNavbar() {
   window.addEventListener('auth-updated', updateBadges);
   window.addEventListener('storage', updateBadges);
 
-  // Initial update
+  // Initialize
+  ensureThemeButton();
   updateBadges();
 
   // Bind universal search bars

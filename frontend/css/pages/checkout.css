@@ -2,11 +2,11 @@
 :root {
   --primary: #0047ff;
   --primary-hover: #0037cc;
-  --bg-dark: #070d1d;
-  --bg-card: #0f172a;
-  --border-color: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --bg-dark: var(--bg-page, #000000);
+  --bg-card: var(--bg-card, #000000);
+  --border-color: var(--border-color, #1e293b);
+  --text-main: var(--text-main, #f8fafc);
+  --text-muted: var(--text-muted, #94a3b8);
   --accent-cyan: #38bdf8;
   --accent-green: #22c55e;
 }

@@ -4,15 +4,15 @@
 :root {
     --primary: #1769e8;
     --primary-dark: #0c4fbd;
-    --navy: #101e35;
-    --text: #182338;
-    --muted: #718096;
-    --bg: #f5f7fb;
-    --white: #ffffff;
-    --border: #e5eaf2;
+    --navy: var(--text-main, #101e35);
+    --text: var(--text-main, #182338);
+    --muted: var(--text-muted, #718096);
+    --bg: var(--bg-page, #ffffff);
+    --white: var(--bg-card, #ffffff);
+    --border: var(--border-color, #e5eaf2);
     --green: #15966b;
     --red: #dc3545;
-    --shadow: 0 8px 25px rgba(16, 30, 53, 0.06);
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 * {
