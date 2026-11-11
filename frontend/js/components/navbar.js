@@ -32,36 +32,69 @@ export function initGlobalNavbar() {
   }
 
   function toggleTheme() {
-    const next = getTheme() === 'dark' ? 'light' : 'dark';
+    const current = getTheme();
+    const next = current === 'dark' ? 'light' : 'dark';
     applyTheme(next);
   }
 
   function updateThemeButtons(theme) {
+    // 1. Header toggle buttons
     document.querySelectorAll('.theme-toggle-btn, #theme-toggle-btn').forEach(btn => {
       if (theme === 'dark') {
-        btn.innerHTML = `🌙 <span class="theme-label">Dark (#000)</span>`;
-        btn.setAttribute('title', 'Switch to Light Mode (#fff)');
+        btn.innerHTML = `☀️ <span class="theme-label">نهار (أبيض)</span>`;
+        btn.setAttribute('title', 'تبديل إلى الوضع النهاري الأبيض (#ffffff)');
       } else {
-        btn.innerHTML = `☀️ <span class="theme-label">Light (#fff)</span>`;
-        btn.setAttribute('title', 'Switch to Dark Mode (#000)');
+        btn.innerHTML = `🌙 <span class="theme-label">ليل (أسود 000)</span>`;
+        btn.setAttribute('title', 'تبديل إلى الوضع المظلم الأسود (#000000)');
+      }
+    });
+
+    // 2. Floating floating-theme-btn
+    document.querySelectorAll('.floating-theme-btn, #floating-theme-toggle').forEach(btn => {
+      if (theme === 'dark') {
+        btn.innerHTML = `<span style="font-size:16px;">☀️</span> <span>الوضع النهاري (أبيض)</span>`;
+        btn.setAttribute('title', 'تبديل إلى الوضع النهاري الأبيض (#ffffff)');
+      } else {
+        btn.innerHTML = `<span style="font-size:16px;">🌙</span> <span>الوضع المظلم (أسود #000)</span>`;
+        btn.setAttribute('title', 'تبديل إلى الوضع المظلم الأسود (#000000)');
       }
     });
   }
 
-  // Inject Theme Button into navigation bar if missing
-  function ensureThemeButton() {
-    const containers = document.querySelectorAll('.nav-actions, .header-actions, .actions, .nav-right, .store-header .container, .nav-container');
+  // Ensure header theme button is present in navigation
+  function ensureHeaderThemeButton() {
+    const containers = document.querySelectorAll('.header-actions, .nav-actions, .nav-right, .store-header .container, .header-inner, .site-top-header .header-right-actions');
     containers.forEach(container => {
       if (!container.querySelector('.theme-toggle-btn')) {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'theme-toggle-btn';
-        btn.setAttribute('aria-label', 'Toggle theme between dark (#000000) and light (#ffffff)');
+        btn.id = 'theme-toggle-btn';
+        btn.setAttribute('aria-label', 'Toggle theme');
         btn.addEventListener('click', toggleTheme);
         container.insertBefore(btn, container.firstChild);
       }
     });
-    updateThemeButtons(getTheme());
+  }
+
+  // Ensure floating sticky theme button is present on the page
+  function ensureFloatingThemeWidget() {
+    if (!document.getElementById('alap-floating-theme')) {
+      const widget = document.createElement('div');
+      widget.id = 'alap-floating-theme';
+      widget.className = 'alap-floating-theme';
+      widget.innerHTML = `
+        <button type="button" class="floating-theme-btn" id="floating-theme-toggle" aria-label="تبديل الثيم">
+          <span style="font-size:16px;">☀️</span>
+          <span>الوضع النهاري (أبيض)</span>
+        </button>
+      `;
+      document.body.appendChild(widget);
+      const floatBtn = widget.querySelector('#floating-theme-toggle');
+      if (floatBtn) {
+        floatBtn.addEventListener('click', toggleTheme);
+      }
+    }
   }
 
   // 1. Cart badge & total update
@@ -102,7 +135,7 @@ export function initGlobalNavbar() {
         if (el.tagName === 'DIV' || el.tagName === 'SPAN') {
           el.title = `${user.name} (${user.email})`;
           if (el.classList.contains('user-avatar-badge')) {
-            el.innerHTML = `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e; margin-right:6px;"></span>${user.name.split(' ')[0]}`;
+            el.innerHTML = `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#00e5cf; margin-right:6px;"></span>${user.name.split(' ')[0]}`;
           }
         }
       }
@@ -116,7 +149,9 @@ export function initGlobalNavbar() {
   window.addEventListener('storage', updateBadges);
 
   // Initialize
-  ensureThemeButton();
+  ensureHeaderThemeButton();
+  ensureFloatingThemeWidget();
+  updateThemeButtons(getTheme());
   updateBadges();
 
   // Bind universal search bars
