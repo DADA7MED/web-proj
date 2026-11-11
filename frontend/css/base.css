@@ -1,11 +1,16 @@
 /* css/base.css — A Lap Master Design System & Shared Tokens */
 
 /* ========================================================
-   LIGHT MODE: PURE CRISP WHITE #ffffff
+   LIGHT MODE: PURE CRISP WHITE #ffffff + TURQUOISE ACCENT
    ======================================================== */
 :root, [data-theme="light"], body.theme-light {
-  --primary: #0052cc;
-  --primary-hover: #003d99;
+  --primary: #00a89a;
+  --primary-hover: #008a7e;
+  --primary-contrast: #ffffff;
+  --primary-glow: rgba(0, 168, 154, 0.25);
+  --turquoise: #00a89a;
+  --turquoise-light: #2dd4bf;
+  --turquoise-dark: #00796b;
   --bg-page: #ffffff;
   --bg-card: #ffffff;
   --bg-card-hover: #f9fafb;
@@ -19,7 +24,7 @@
   --nav-text: #000000;
   --nav-border: #e2e8f0;
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  --accent-cyan: #0284c7;
+  --accent-cyan: #00a89a;
   --accent-green: #16a34a;
   --accent-red: #dc2626;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -28,11 +33,16 @@
 }
 
 /* ========================================================
-   DARK MODE: PURE PITCH BLACK #000000
+   DARK MODE: PURE PITCH BLACK #000000 + VIBRANT TURQUOISE
    ======================================================== */
 [data-theme="dark"], body.theme-dark {
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
+  --primary: #00e5cf;
+  --primary-hover: #00c4b4;
+  --primary-contrast: #000000;
+  --primary-glow: rgba(0, 229, 207, 0.35);
+  --turquoise: #00e5cf;
+  --turquoise-light: #5eead4;
+  --turquoise-dark: #00a89a;
   --bg-page: #000000 !important;
   --bg-card: #000000 !important;
   --bg-card-hover: #0a0a0a !important;
@@ -46,7 +56,7 @@
   --nav-text: #ffffff !important;
   --nav-border: #1a1a1a !important;
   --card-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
-  --accent-cyan: #38bdf8;
+  --accent-cyan: #00e5cf;
   --accent-green: #22c55e;
   --accent-red: #ef4444;
   color-scheme: dark;
@@ -98,7 +108,7 @@ body {
 }
 
 .nav-logo .logo-icon {
-  color: var(--primary);
+  color: var(--primary) !important;
   font-size: 22px;
 }
 
@@ -121,7 +131,7 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 .nav-actions {
@@ -176,19 +186,19 @@ body {
 }
 
 .nav-btn.primary {
-  background: var(--primary);
-  color: #fff !important;
-  border-color: var(--primary);
+  background: var(--primary) !important;
+  color: var(--primary-contrast) !important;
+  border-color: var(--primary) !important;
 }
 
 .nav-btn.primary:hover {
-  background: var(--primary-hover);
+  background: var(--primary-hover) !important;
 }
 
 /* Cart & Wishlist Pill Badges */
 .badge-count {
-  background: var(--primary);
-  color: #fff;
+  background: var(--primary) !important;
+  color: var(--primary-contrast) !important;
   font-size: 11px;
   font-weight: 700;
   padding: 2px 6px;
@@ -267,7 +277,7 @@ body {
 }
 [data-theme="dark"] .nav-links a:hover,
 [data-theme="dark"] .nav-links a.active {
-  color: #38bdf8 !important;
+  color: var(--primary) !important;
 }
 
 /* ========================================================
@@ -321,4 +331,21 @@ body.theme-light {
   background-color: #ffffff !important;
   color: #000000 !important;
   border-color: #d1d5db !important;
+}
+
+/* Turquoise Highlights & Buttons */
+.btn-primary,
+.cta-button,
+.shop-button,
+.page-btn.active,
+.tag-chip.active,
+.cart-badge-box,
+.btn-checkout {
+  background-color: var(--primary) !important;
+  color: var(--primary-contrast) !important;
+  border-color: var(--primary) !important;
+}
+
+a:hover {
+  color: var(--primary);
 }

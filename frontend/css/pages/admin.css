@@ -1,9 +1,9 @@
 /* Admin styles. All classes use the admin- prefix to avoid clashing with other pages. */
 :root {
-  --admin-sidebar-bg: #0d1c32;
-  --admin-primary: #0266ff;
-  --admin-accent: #47d6ff;
-  --admin-accent-soft: #b6ebff;
+  --admin-sidebar-bg: #000000;
+  --admin-primary: var(--primary, #00a89a);
+  --admin-accent: #2dd4bf;
+  --admin-accent-soft: #99f6e4;
   --admin-muted: #76849f;
   --admin-bg: #f4f6fb;
   --admin-card: #ffffff;

@@ -1,12 +1,13 @@
 /* css/pages/orders.css */
 :root {
-  --primary: #0047ff;
+  --primary: var(--primary, #00a89a);
+  --primary-hover: var(--primary-hover, #008a7e);
   --bg-dark: var(--bg-page, #000000);
   --bg-card: var(--bg-card, #000000);
   --border-color: var(--border-color, #1e293b);
   --text-main: var(--text-main, #f8fafc);
   --text-muted: var(--text-muted, #94a3b8);
-  --accent-cyan: #38bdf8;
+  --accent-cyan: var(--turquoise, #00e5cf);
   --accent-green: #22c55e;
 }
 

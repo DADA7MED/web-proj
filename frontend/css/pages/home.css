@@ -3,14 +3,14 @@
    ========================================================= */
 :root, [data-theme="light"], body.theme-light {
   --primary: #000000;
-  --secondary: #0066FF;
-  --tertiary: #0284c7;
+  --secondary: #00a89a;
+  --tertiary: #00c4b4;
   --neutral: #000000;
   --white: #ffffff;
 
   --primary-soft: #f8fafc;
-  --secondary-soft: #3d88ff;
-  --secondary-deep: #004fcc;
+  --secondary-soft: #2dd4bf;
+  --secondary-deep: #00796b;
   --lavender: #f1f5f9;
   --lavender-deep: #e2e8f0;
   --card: #ffffff;
@@ -18,8 +18,8 @@
   --line: rgba(0, 0, 0, 0.08);
   --shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
   --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.12);
-  --glow-blue: 0 0 32px rgba(0, 102, 255, 0.25);
-  --glow-cyan: 0 0 36px rgba(0, 210, 255, 0.2);
+  --glow-blue: 0 0 32px rgba(0, 168, 154, 0.35);
+  --glow-cyan: 0 0 36px rgba(0, 229, 207, 0.3);
   --radius: 18px;
   --radius-sm: 12px;
   --header-h: 72px;
@@ -32,14 +32,14 @@
 
 [data-theme="dark"], body.theme-dark {
   --primary: #ffffff !important;
-  --secondary: #3b82f6 !important;
-  --tertiary: #38bdf8 !important;
+  --secondary: #00e5cf !important;
+  --tertiary: #5eead4 !important;
   --neutral: #ffffff !important;
   --white: #000000 !important;
 
   --primary-soft: #080808 !important;
-  --secondary-soft: #60a5fa !important;
-  --secondary-deep: #1d4ed8 !important;
+  --secondary-soft: #2dd4bf !important;
+  --secondary-deep: #00c4b4 !important;
   --lavender: #0a0a0a !important;
   --lavender-deep: #141414 !important;
   --card: #000000 !important;
@@ -47,8 +47,8 @@
   --line: #1c1c1c !important;
   --shadow: 0 12px 32px rgba(0, 0, 0, 0.8) !important;
   --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.95) !important;
-  --glow-blue: 0 0 32px rgba(59, 130, 246, 0.2) !important;
-  --glow-cyan: 0 0 36px rgba(56, 189, 248, 0.15) !important;
+  --glow-blue: 0 0 32px rgba(0, 229, 207, 0.35) !important;
+  --glow-cyan: 0 0 36px rgba(94, 234, 212, 0.25) !important;
 }
 
 *,
@@ -553,7 +553,7 @@ p { margin: 0; }
 .wish-btn:hover { transform: scale(1.08); }
 .product-body { padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .rating { font-size: 0.82rem; }
-.stars { color: #0066FF; letter-spacing: 1px; }
+.stars { color: var(--secondary, #00c4b4); letter-spacing: 1px; }
 .product-body h3 { font-size: 1rem; }
 .product-footer {
   margin-top: auto;

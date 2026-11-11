@@ -15,7 +15,7 @@ button {
 }
 
 .blue {
-  color: var(--primary, #2563eb);
+  color: var(--primary, #00a89a);
 }
 
 .light {
@@ -110,7 +110,7 @@ h1 {
 
 #barFill {
   height: 100%;
-  background: #2563eb;
+  background: var(--primary, #00a89a);
   transition: width 0.3s;
 }
 
@@ -325,8 +325,8 @@ h1 {
 .checkout {
   width: 100%;
   padding: 14px;
-  background: #2563eb;
-  color: #fff;
+  background: var(--primary, #00a89a);
+  color: var(--primary-contrast, #fff);
   border: 0;
   border-radius: 8px;
   font-size: 16px;

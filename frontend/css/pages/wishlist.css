@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-    --primary: #1769e8;
-    --primary-dark: #0c4fbd;
+    --primary: var(--primary, #00a89a);
+    --primary-dark: var(--primary-hover, #008a7e);
     --navy: var(--text-main, #101e35);
     --text: var(--text-main, #182338);
     --muted: var(--text-muted, #718096);

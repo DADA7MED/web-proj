@@ -6,7 +6,7 @@
 :root {
     --bg-main: var(--bg-page, #ffffff);
     --card-bg: var(--bg-card, #ffffff);
-    --primary-blue: #0047ff;
+    --primary-blue: var(--primary, #00a89a);
     --text-dark: var(--text-main, #0f172a);
     --text-muted: var(--text-muted, #64748b);
     --border-color: var(--border-color, #e2e8f0);
@@ -108,7 +108,7 @@ button, input, select { font-family: inherit; }
 }
 .cov-label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 4px; }
 .coverage-card strong { display: block; font-size: 26px; font-weight: 800; }
-.coverage-card small { color: #2563eb; font-size: 12px; font-weight: 600; }
+.coverage-card small { color: var(--primary, #00a89a); font-size: 12px; font-weight: 600; }
 .cov-divider { width: 1px; background: var(--border-color); }
 
 /* Filter bar */
@@ -168,7 +168,7 @@ button, input, select { font-family: inherit; }
     gap: 10px;
     color: var(--text-dark);
 }
-.accent-bar { color: #2563eb; font-weight: 900; }
+.accent-bar { color: var(--primary, #00a89a); font-weight: 900; }
 
 /* =========================================================
    5) Grids  (cats = 4 أعمدة، brands = 3 أعمدة)
@@ -267,7 +267,7 @@ button, input, select { font-family: inherit; }
 .model-price { color: var(--text-dark); font-weight: 700; white-space: nowrap; }
 
 .brand-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid #f1f5f9; gap: 8px; }
-.brand-link { color: #2563eb; font-weight: 600; font-size: 0.8rem; text-decoration: none; }
+.brand-link { color: var(--primary, #00a89a); font-weight: 600; font-size: 0.8rem; text-decoration: none; }
 .brand-link:hover { text-decoration: underline; }
 .support-tag { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; white-space: nowrap; }
 
@@ -318,7 +318,7 @@ button, input, select { font-family: inherit; }
 .breadcrumb-inner { max-width: var(--container); margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .breadcrumb-inner strong { color: var(--text-dark); }
 .matrix-chip { background: #e0e7ff; color: #3730a3; font-weight: 700; font-size: 10px; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
-.stock-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #2563eb; margin-right: 4px; }
+.stock-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--primary, #00a89a); margin-right: 4px; }
 
 /* رسالة لما البحث مايلاقيش نتيجة */
 .no-results { grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 24px; font-size: 14px; }

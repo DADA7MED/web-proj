@@ -4,7 +4,7 @@
 :root {
     --bg-main: var(--bg-page, #ffffff);
     --card-bg: var(--bg-card, #ffffff);
-    --primary-blue: #0047ff;
+    --primary-blue: var(--primary, #00a89a);
     --text-dark: var(--text-main, #0f172a);
     --text-muted: var(--text-muted, #64748b);
     --border-color: var(--border-color, #e2e8f0);
@@ -47,7 +47,7 @@ body {
 
 /* Hero Banner */
 .hero-banner { grid-column: 1 / -1; background: #070d1d; color: #fff; padding: 28px 36px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; }
-.badge-pill { background: #0047ff; color: #fff; font-size: 10px; padding: 4px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
+.badge-pill { background: var(--primary, #00a89a); color: var(--primary-contrast, #fff); font-size: 10px; padding: 4px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
 .hero-content h1 { font-size: 26px; margin: 10px 0 6px 0; }
 .hero-content p { color: #94a3b8; font-size: 13px; margin: 0; }
 .specs-meta { display: flex; gap: 20px; font-size: 11px; color: #94a3b8; margin-top: 14px; }
@@ -92,8 +92,8 @@ body {
 .feature-highlight-card { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: space-between; }
 .feature-highlight-card .icon-box { font-size: 28px; background: #fff; padding: 10px; border-radius: 8px; }
 .feature-highlight-card .text-content h4 { margin: 0 0 4px 0; font-size: 15px; color: #1e3a8a; }
-.feature-highlight-card .text-content p { margin: 0; font-size: 13px; color: #3b82f6; }
-.outline-btn { background: #fff; border: 1px solid #3b82f6; color: #3b82f6; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.feature-highlight-card .text-content p { margin: 0; font-size: 13px; color: var(--primary, #00a89a); }
+.outline-btn { background: transparent; border: 1px solid var(--primary, #00a89a); color: var(--primary, #00a89a); padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; }
 
 /* Footer */
 .store-footer { background: #070d1d; color: #94a3b8; margin-top: 40px; padding: 40px 0 20px 0; font-size: 13px; }
