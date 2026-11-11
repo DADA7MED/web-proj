@@ -30,7 +30,7 @@ body {
 .checkout-header .brand {
   font-size: 18px;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-heading, #fff);
   text-decoration: none;
   display: flex;
   align-items: center;

@@ -1,63 +1,73 @@
-/* css/base.css — A Lap Master Design System & Shared Tokens */
+/* css/base.css — A Lap Master Design System & Polished Color Theme */
 
 /* ========================================================
-   LIGHT MODE: PURE CRISP WHITE #ffffff + TURQUOISE ACCENT
+   LIGHT MODE: PURE CRISP WHITE #ffffff + REFINED TURQUOISE
    ======================================================== */
 :root, [data-theme="light"], body.theme-light {
-  --primary: #00a89a;
-  --primary-hover: #008a7e;
-  --primary-contrast: #ffffff;
-  --primary-glow: rgba(0, 168, 154, 0.25);
-  --turquoise: #00a89a;
+  --primary: #0d9488;              /* Rich, accessible turquoise/teal */
+  --primary-hover: #0f766e;        /* Deeper teal on hover */
+  --primary-active: #115e59;
+  --primary-contrast: #ffffff;     /* Crisp white text on primary button */
+  --primary-soft: #f0fdfa;         /* Soft turquoise tint */
+  --primary-glow: rgba(13, 148, 136, 0.2);
+  --turquoise: #0d9488;
   --turquoise-light: #2dd4bf;
-  --turquoise-dark: #00796b;
-  --bg-page: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f9fafb;
-  --bg-surface: #f4f5f7;
-  --border-color: #e2e8f0;
+  --turquoise-dark: #115e59;
+  --bg-page: #ffffff;              /* Pure crisp white */
+  --bg-card: #ffffff;              /* Pure white cards */
+  --bg-card-hover: #f8fafc;
+  --bg-surface: #f8fafc;           /* Light gray surface */
+  --bg-surface-elevated: #ffffff;
+  --border-color: #e2e8f0;         /* Clean subtle border */
   --border-light: #f1f5f9;
-  --text-main: #000000;
-  --text-heading: #000000;
-  --text-muted: #525252;
+  --text-main: #0f172a;            /* Slate dark for body text */
+  --text-heading: #000000;         /* Pure black for headings */
+  --text-muted: #64748b;           /* Slate muted */
+  --text-subtle: #94a3b8;
   --nav-bg: #ffffff;
-  --nav-text: #000000;
+  --nav-text: #0f172a;
   --nav-border: #e2e8f0;
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  --accent-cyan: #00a89a;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --accent-cyan: #0891b2;
   --accent-green: #16a34a;
-  --accent-red: #dc2626;
+  --accent-amber: #f59e0b;
+  --accent-red: #ef4444;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Outfit', 'Inter', sans-serif;
   color-scheme: light;
 }
 
 /* ========================================================
-   DARK MODE: PURE PITCH BLACK #000000 + VIBRANT TURQUOISE
+   DARK MODE: PURE PITCH BLACK #000000 + ELECTRIC TURQUOISE
    ======================================================== */
 [data-theme="dark"], body.theme-dark {
-  --primary: #00e5cf;
-  --primary-hover: #00c4b4;
-  --primary-contrast: #000000;
-  --primary-glow: rgba(0, 229, 207, 0.35);
-  --turquoise: #00e5cf;
+  --primary: #00f0d4;              /* Electric Cyber Turquoise */
+  --primary-hover: #2dd4bf;        /* Softer bright turquoise */
+  --primary-active: #5eead4;
+  --primary-contrast: #000000;     /* Deep black text on electric turquoise */
+  --primary-soft: rgba(0, 240, 212, 0.1);
+  --primary-glow: rgba(0, 240, 212, 0.35);
+  --turquoise: #00f0d4;
   --turquoise-light: #5eead4;
   --turquoise-dark: #00a89a;
-  --bg-page: #000000 !important;
-  --bg-card: #000000 !important;
-  --bg-card-hover: #0a0a0a !important;
+  --bg-page: #000000 !important;   /* True 100% OLED black */
+  --bg-card: #050505 !important;   /* Pitch black with micro-elevation */
+  --bg-card-hover: #0c0c0c !important;
   --bg-surface: #0a0a0a !important;
-  --border-color: #1a1a1a !important;
-  --border-light: #121212 !important;
-  --text-main: #ffffff !important;
-  --text-heading: #ffffff !important;
-  --text-muted: #a3a3a3 !important;
+  --bg-surface-elevated: #111111 !important;
+  --border-color: #1a1f24 !important; /* Elegant dark border */
+  --border-light: #14181c !important;
+  --text-main: #f1f5f9 !important;    /* Soft readable white */
+  --text-heading: #ffffff !important; /* Pure white */
+  --text-muted: #94a3b8 !important;   /* Clear silver slate */
+  --text-subtle: #64748b !important;
   --nav-bg: #000000 !important;
   --nav-text: #ffffff !important;
-  --nav-border: #1a1a1a !important;
-  --card-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
-  --accent-cyan: #00e5cf;
+  --nav-border: #1a1f24 !important;
+  --card-shadow: 0 4px 28px rgba(0, 0, 0, 0.95);
+  --accent-cyan: #00f0d4;
   --accent-green: #22c55e;
+  --accent-amber: #fbbf24;
   --accent-red: #ef4444;
   color-scheme: dark;
 }
@@ -66,14 +76,36 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
   color: var(--text-main);
   background-color: var(--bg-page);
-  line-height: 1.5;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  line-height: 1.55;
+  transition: background-color 0.25s ease, color 0.25s ease;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-contrast);
+}
+
+/* Global Form Controls & Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+select,
+textarea {
+  accent-color: var(--primary);
+  font-family: inherit;
 }
 
 /* Global Navbar Styling */
@@ -84,6 +116,7 @@ body {
   top: 0;
   z-index: 1000;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(12px);
 }
 
 .global-navbar .nav-container {
@@ -98,24 +131,26 @@ body {
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--text-heading) !important;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  letter-spacing: -0.02em;
 }
 
 .nav-logo .logo-icon {
   color: var(--primary) !important;
-  font-size: 22px;
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -126,7 +161,7 @@ body {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover,
@@ -140,15 +175,15 @@ body {
   gap: 12px;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button (Navbar) */
 .theme-toggle-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background: var(--bg-surface, #111111);
-  color: var(--text-main, #ffffff);
-  border: 1.5px solid var(--primary, #00a89a);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1.5px solid var(--border-color);
   border-radius: 20px;
   padding: 6px 14px;
   font-size: 12px;
@@ -160,13 +195,14 @@ body {
 }
 
 .theme-toggle-btn:hover {
-  background: var(--primary, #00a89a);
-  color: var(--primary-contrast, #000000) !important;
+  background: var(--primary);
+  color: var(--primary-contrast) !important;
+  border-color: var(--primary);
   transform: translateY(-1px);
   box-shadow: 0 4px 14px var(--primary-glow);
 }
 
-/* Floating Theme Switcher Widget (Always Visible) */
+/* Floating Theme Switcher Widget (Bottom-Right, Always Visible) */
 .alap-floating-theme {
   position: fixed;
   bottom: 24px;
@@ -178,27 +214,54 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 11px 20px;
   border-radius: 9999px;
   background: var(--bg-card, #000000);
   color: var(--text-main, #ffffff);
-  border: 2px solid var(--primary, #00e5cf);
-  box-shadow: 0 8px 24px var(--primary-glow);
+  border: 2px solid var(--primary);
+  box-shadow: 0 8px 25px var(--primary-glow);
   font-family: inherit;
   font-size: 13px;
   font-weight: 800;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
 .floating-theme-btn:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 30px var(--primary-glow);
-  background: var(--primary, #00e5cf);
-  color: var(--primary-contrast, #000000);
+  box-shadow: 0 12px 32px var(--primary-glow);
+  background: var(--primary);
+  color: var(--primary-contrast);
 }
 
+/* Primary Button Styles */
+.nav-btn.primary,
+.btn-primary,
+.cta-button,
+.shop-button,
+.btn-checkout,
+.checkout {
+  background-color: var(--primary) !important;
+  color: var(--primary-contrast) !important;
+  border: 1px solid var(--primary) !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease;
+}
+
+.nav-btn.primary:hover,
+.btn-primary:hover,
+.cta-button:hover,
+.shop-button:hover,
+.btn-checkout:hover,
+.checkout:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  box-shadow: 0 6px 20px var(--primary-glow) !important;
+  transform: translateY(-1px);
+}
+
+/* Secondary Button Styles */
 .nav-btn {
   background: var(--bg-surface);
   color: var(--text-main);
@@ -220,26 +283,21 @@ body {
   color: var(--primary);
 }
 
-.nav-btn.primary {
-  background: var(--primary) !important;
-  color: var(--primary-contrast) !important;
-  border-color: var(--primary) !important;
-}
-
-.nav-btn.primary:hover {
-  background: var(--primary-hover) !important;
-}
-
 /* Cart & Wishlist Pill Badges */
 .badge-count {
   background: var(--primary) !important;
   color: var(--primary-contrast) !important;
   font-size: 11px;
-  font-weight: 700;
-  padding: 2px 6px;
+  font-weight: 800;
+  padding: 2px 7px;
   border-radius: 10px;
   min-width: 18px;
   text-align: center;
+}
+
+/* Rating Stars */
+.stars, .star-rating {
+  color: var(--accent-amber) !important;
 }
 
 /* Responsive Utilities */
@@ -250,7 +308,7 @@ body {
 }
 
 /* ========================================================
-   GLOBAL PURE DARK (#000000) OVERRIDES
+   GLOBAL PURE DARK (#000000) POLISHED OVERRIDES
    ======================================================== */
 [data-theme="dark"] body,
 [data-theme="dark"] .site-header,
@@ -264,8 +322,8 @@ body {
 [data-theme="dark"] .spec-sheet-panel,
 [data-theme="dark"] .dock-add-ons {
   background-color: #000000 !important;
-  color: #ffffff !important;
-  border-color: #1a1a1a !important;
+  color: #f1f5f9 !important;
+  border-color: #1a1f24 !important;
 }
 
 [data-theme="dark"] .product-card,
@@ -281,11 +339,21 @@ body {
 [data-theme="dark"] .wishlist-card,
 [data-theme="dark"] .details-card,
 [data-theme="dark"] .deploy-box,
+[data-theme="dark"] .top-box,
+[data-theme="dark"] .card,
+[data-theme="dark"] .summary,
 [data-theme="dark"] .admin-card {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  border-color: #1f1f1f !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.8) !important;
+  background-color: #050505 !important;
+  color: #f1f5f9 !important;
+  border-color: #1a1f24 !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.85) !important;
+}
+
+[data-theme="dark"] .product-card:hover,
+[data-theme="dark"] .category-form-factor-card:hover,
+[data-theme="dark"] .brand-ecosystem-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 8px 30px var(--primary-glow) !important;
 }
 
 [data-theme="dark"] h1,
@@ -304,11 +372,18 @@ body {
 [data-theme="dark"] textarea {
   background-color: #0a0a0a !important;
   color: #ffffff !important;
-  border-color: #222222 !important;
+  border-color: #22262a !important;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 10px var(--primary-glow) !important;
 }
 
 [data-theme="dark"] .nav-links a {
-  color: #a3a3a3 !important;
+  color: #94a3b8 !important;
 }
 [data-theme="dark"] .nav-links a:hover,
 [data-theme="dark"] .nav-links a.active {
@@ -316,12 +391,12 @@ body {
 }
 
 /* ========================================================
-   GLOBAL PURE LIGHT (#ffffff) OVERRIDES
+   GLOBAL PURE LIGHT (#ffffff) POLISHED OVERRIDES
    ======================================================== */
 [data-theme="light"] body,
 body.theme-light {
   background-color: #ffffff !important;
-  color: #000000 !important;
+  color: #0f172a !important;
 }
 
 [data-theme="light"] .global-navbar,
@@ -329,8 +404,8 @@ body.theme-light {
 [data-theme="light"] .store-header,
 [data-theme="light"] .breadcrumb-bar {
   background-color: #ffffff !important;
-  border-color: #e5e7eb !important;
-  color: #000000 !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
 }
 
 [data-theme="light"] .product-card,
@@ -343,10 +418,21 @@ body.theme-light {
 [data-theme="light"] .auth-card,
 [data-theme="light"] .checkout-card,
 [data-theme="light"] .order-card,
-[data-theme="light"] .wishlist-card {
+[data-theme="light"] .wishlist-card,
+[data-theme="light"] .top-box,
+[data-theme="light"] .card,
+[data-theme="light"] .summary {
   background-color: #ffffff !important;
-  color: #000000 !important;
-  border-color: #e5e7eb !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .product-card:hover,
+[data-theme="light"] .category-form-factor-card:hover,
+[data-theme="light"] .brand-ecosystem-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.15) !important;
 }
 
 [data-theme="light"] h1,
@@ -364,21 +450,38 @@ body.theme-light {
 [data-theme="light"] select,
 [data-theme="light"] textarea {
   background-color: #ffffff !important;
-  color: #000000 !important;
-  border-color: #d1d5db !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
 }
 
-/* Turquoise Highlights & Buttons */
-.btn-primary,
-.cta-button,
-.shop-button,
-.page-btn.active,
+[data-theme="light"] input:focus,
+[data-theme="light"] select:focus,
+[data-theme="light"] textarea:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.2) !important;
+}
+
+/* Turquoise Highlights & Chips */
 .tag-chip.active,
-.cart-badge-box,
-.btn-checkout {
+.page-btn.active,
+.badge-pill {
   background-color: var(--primary) !important;
   color: var(--primary-contrast) !important;
   border-color: var(--primary) !important;
+}
+
+/* Price Tags */
+.product-price,
+.display-price,
+.price-tag,
+.price,
+#display-price {
+  color: var(--primary) !important;
+  font-weight: 800 !important;
+}
+
+a {
+  transition: color 0.2s ease;
 }
 
 a:hover {

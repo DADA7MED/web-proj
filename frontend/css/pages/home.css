@@ -3,14 +3,14 @@
    ========================================================= */
 :root, [data-theme="light"], body.theme-light {
   --primary: #000000;
-  --secondary: #00a89a;
-  --tertiary: #00c4b4;
+  --secondary: #0d9488;
+  --tertiary: #14b8a6;
   --neutral: #000000;
   --white: #ffffff;
 
   --primary-soft: #f8fafc;
   --secondary-soft: #2dd4bf;
-  --secondary-deep: #00796b;
+  --secondary-deep: #0f766e;
   --lavender: #f1f5f9;
   --lavender-deep: #e2e8f0;
   --card: #ffffff;
@@ -18,8 +18,8 @@
   --line: rgba(0, 0, 0, 0.08);
   --shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
   --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.12);
-  --glow-blue: 0 0 32px rgba(0, 168, 154, 0.35);
-  --glow-cyan: 0 0 36px rgba(0, 229, 207, 0.3);
+  --glow-blue: 0 0 32px rgba(13, 148, 136, 0.3);
+  --glow-cyan: 0 0 36px rgba(45, 212, 191, 0.25);
   --radius: 18px;
   --radius-sm: 12px;
   --header-h: 72px;
@@ -32,7 +32,7 @@
 
 [data-theme="dark"], body.theme-dark {
   --primary: #ffffff !important;
-  --secondary: #00e5cf !important;
+  --secondary: #00f0d4 !important;
   --tertiary: #5eead4 !important;
   --neutral: #ffffff !important;
   --white: #000000 !important;
@@ -47,7 +47,7 @@
   --line: #1c1c1c !important;
   --shadow: 0 12px 32px rgba(0, 0, 0, 0.8) !important;
   --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.95) !important;
-  --glow-blue: 0 0 32px rgba(0, 229, 207, 0.35) !important;
+  --glow-blue: 0 0 32px rgba(0, 240, 212, 0.35) !important;
   --glow-cyan: 0 0 36px rgba(94, 234, 212, 0.25) !important;
 }
 

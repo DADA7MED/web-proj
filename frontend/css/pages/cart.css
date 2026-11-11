@@ -311,7 +311,9 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f1f5f9;
+  background: var(--bg-surface, #f1f5f9);
+  border: 1px solid var(--border-color, #e2e8f0);
+  color: var(--text-main, inherit);
   padding: 16px;
   border-radius: 10px;
   margin: 20px 0;
